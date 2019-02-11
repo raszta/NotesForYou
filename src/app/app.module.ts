@@ -5,8 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
-
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -29,8 +27,7 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     RouterModule.forRoot(appRoutes),
     CommonModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
