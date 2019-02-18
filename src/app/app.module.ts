@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -33,7 +34,8 @@ import { UserSettingsComponent } from './user-settings/user-settings.component';
     FormsModule,
     RouterModule.forRoot(appRoutes),
     CommonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    // StoreModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
