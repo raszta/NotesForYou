@@ -16,6 +16,9 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
+import { AuthGuard } from './guards/auth.guard';
+import { RoleGuard } from './guards/role.guard';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,11 @@ import { UserSettingsComponent } from './user-settings/user-settings.component';
     BrowserAnimationsModule,
     // StoreModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    RoleGuard,
+    AuthService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
