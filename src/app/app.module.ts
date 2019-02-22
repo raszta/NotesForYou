@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -17,6 +18,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
 import { AuthService } from './services/auth.service';
 import { SharedModule } from './shared/shared.module';
+import { environment } from 'src/environments/environment.prod';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,12 @@ import { SharedModule } from './shared/shared.module';
     RouterModule.forRoot(appRoutes),
     SharedModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({})
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument({
+      name: 'AngularClient Devtools',
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [
     AuthGuard,
