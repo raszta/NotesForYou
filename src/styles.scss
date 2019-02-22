@@ -6,3 +6,14 @@
 *{
   box-sizing: border-box;
 }
+
+html{
+  height: 100%;
+}
+
+body{
+  min-height: 100%;
+  position:relative;
+  padding:0;
+  margin:0;
+}

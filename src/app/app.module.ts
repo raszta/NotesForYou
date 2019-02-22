@@ -9,23 +9,19 @@ import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { MenuComponent } from './shared/menu.component';
-import { FooterComponent } from './shared/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
 import { AuthService } from './services/auth.service';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MenuComponent,
-    FooterComponent,
     DashboardComponent,
     LoginComponent,
     RegisterComponent,
@@ -36,9 +32,9 @@ import { AuthService } from './services/auth.service';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    CommonModule,
+    SharedModule,
     BrowserAnimationsModule,
-    // StoreModule.forRoot({})
+    StoreModule.forRoot({})
   ],
   providers: [
     AuthGuard,
