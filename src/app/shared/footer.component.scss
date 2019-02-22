@@ -1,0 +1,41 @@
+@import '../../scss/mixin';
+@import '../../scss/variables';
+
+.footer{
+  height: 3em;
+
+  .footer__content{
+    @include flexDisplay(row, space-between, center);
+
+    .footer__logo{
+      cursor: pointer;
+
+      .footer__logo-title{
+        font-size: 2.5em;
+
+        .title__link{
+          color: $font-color-primary;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .footer__list{
+      @include flexDisplay(row, space-between, center);
+
+      .list__item{
+        margin-right: 1em;
+
+        .list__link{
+          text-decoration: none;
+          color: $font-color-primary;
+
+          &:hover{
+            color: $font-color-hover;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

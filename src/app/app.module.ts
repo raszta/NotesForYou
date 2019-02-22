@@ -9,8 +9,8 @@ import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { MenuComponent } from './menu/menu.component';
-import { FooterComponent } from './footer/footer.component';
+import { MenuComponent } from './shared/menu.component';
+import { FooterComponent } from './shared/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
@@ -38,7 +38,7 @@ import { AuthService } from './services/auth.service';
     RouterModule.forRoot(appRoutes),
     CommonModule,
     BrowserAnimationsModule,
-    // StoreModule.forRoot()
+    // StoreModule.forRoot({})
   ],
   providers: [
     AuthGuard,

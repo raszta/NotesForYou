@@ -1,0 +1,6 @@
+@mixin flexDisplay($tier, $horizontalAlignment, $verticalAlignment){
+  display:flex;
+  flex-direction: $tier;
+  justify-content: $horizontalAlignment;
+  align-items: $verticalAlignment;
+}
