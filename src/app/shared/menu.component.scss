@@ -9,6 +9,7 @@
     @include flexDisplay(row, space-between, center);
 
     .menu__logo{
+      flex-basis: 40%;
       cursor: pointer;
       font-family: 'Permanent Marker', cursive;
 
@@ -23,7 +24,9 @@
     }
 
     .menu__links{
-      @include flexDisplay(row, space-between, center);
+      font-family: 'Pacifico', cursive;
+      flex-basis: 45%;
+      @include flexDisplay(row, space-around, center);
 
       .menu__links-item{
         margin-right: 1em;

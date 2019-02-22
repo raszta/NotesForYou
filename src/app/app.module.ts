@@ -11,23 +11,18 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
-import { AuthService } from './services/auth.service';
+
 import { SharedModule } from './shared/shared.module';
-import { environment } from 'src/environments/environment.prod';
+import { UserModule } from './user/user.module';
+import { environment } from '../environments/environment.prod';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DashboardComponent,
-    LoginComponent,
-    RegisterComponent,
-    UserSettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +30,7 @@ import { environment } from 'src/environments/environment.prod';
     FormsModule,
     RouterModule.forRoot(appRoutes),
     SharedModule,
+    UserModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
@@ -46,7 +42,6 @@ import { environment } from 'src/environments/environment.prod';
   providers: [
     AuthGuard,
     RoleGuard,
-    AuthService
     ],
   bootstrap: [AppComponent]
 })
