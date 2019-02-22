@@ -2,7 +2,9 @@
 @import '../../scss/variables';
 
 .footer{
-  height: 3em;
+  width:100%;
+  position:absolute;
+  bottom:0;
 
   .footer__content{
     @include flexDisplay(row, space-between, center);
