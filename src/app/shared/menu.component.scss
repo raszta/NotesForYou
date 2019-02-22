@@ -1,0 +1,50 @@
+@import '../../scss/mixin';
+@import '../../scss/variables';
+@import '../../scss/typography';
+
+.menu{
+  margin: 1.5em 0;
+
+  .menu__container{
+    @include flexDisplay(row, space-between, center);
+
+    .menu__logo{
+      cursor: pointer;
+      font-family: 'Permanent Marker', cursive;
+
+      .menu__logo-title{
+        font-size: 2.5em;
+
+        .title__link{
+          color: $font-color-primary;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .menu__links{
+      @include flexDisplay(row, space-between, center);
+
+      .menu__links-item{
+        margin-right: 1em;
+        border: 1px solid $font-color-primary;
+        padding: 0.5em;
+        border-radius: 30px;
+
+        &:hover{
+          background: $background-color-button;
+
+          .menu__links-item-link{
+            color: $font-color-hover2;
+          }
+        }
+
+        .menu__links-item-link{
+          text-decoration: none;
+          color: $font-color-primary;
+
+        }
+      }
+    }
+  }
+}

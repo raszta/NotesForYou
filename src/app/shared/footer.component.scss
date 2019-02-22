@@ -1,5 +1,6 @@
 @import '../../scss/mixin';
 @import '../../scss/variables';
+@import '../../scss/typography';
 
 .footer{
   width:100%;
@@ -11,6 +12,7 @@
 
     .footer__logo{
       cursor: pointer;
+      font-family: 'Pacifico', cursive;
 
       .footer__logo-title{
         font-size: 2.5em;
