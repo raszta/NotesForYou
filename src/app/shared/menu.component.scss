@@ -3,9 +3,9 @@
 @import '../../scss/typography';
 
 .menu{
-  margin: 1.5em 0;
 
   .menu__container{
+    margin: 1.5em 0;
     @include flexDisplay(row, space-between, center);
 
     .menu__logo{
