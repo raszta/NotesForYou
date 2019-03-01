@@ -17,12 +17,16 @@ import { RoleGuard } from './guards/role.guard';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 import { environment } from '../environments/environment.prod';
+import { UsageComponent } from './usage/usage.component';
+import { HowWorksComponent } from './usage/how-works/how-works.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DashboardComponent,
+    UsageComponent,
+    HowWorksComponent,
   ],
   imports: [
     BrowserModule,
