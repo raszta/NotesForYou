@@ -1,0 +1,22 @@
+.notFound{
+
+  .notFound__container{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .notFound__info{
+
+      .info__title{
+        font-weight: bold;
+      }
+
+      .info__subtitle{
+        text-align: center;
+        margin: 2% 0;
+      }
+    }
+  }
+}
