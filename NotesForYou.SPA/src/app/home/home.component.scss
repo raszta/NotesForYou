@@ -1,0 +1,28 @@
+.home{
+
+  .home__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: stretch;
+    font-family: 'Pacifico', cursive;
+
+    .home__welcome{
+      margin: 5% 0;
+
+      .home__welcome-title{
+        font-size: 4em;
+      }
+    }
+
+    .home__info{
+      border: 2px solid #cac2c2;
+      padding: 2em;
+
+      .home__info-text{
+        font-size: 1.2em;
+      }
+    }
+  }
+}
