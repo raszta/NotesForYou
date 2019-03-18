@@ -6,10 +6,14 @@
   height: 4em;
   position:absolute;
   top:0;
-  left: 15%;
+  left: 0;
+
+  @media screen and(min-width: $desktop-resolution){
+    left: 15%;
+  }
 
   .menu__container{
-    margin: 1.5em 0;
+    padding: 1.5em 0;
     @include flexDisplay(row, space-between, center);
 
     .menu__logo{
@@ -30,10 +34,10 @@
     .menu__links{
       font-family: 'Pacifico', cursive;
       flex-basis: 45%;
-      @include flexDisplay(row, space-around, center);
+      @include flexDisplay(row, center, center);
 
       .menu__links-item{
-        margin-right: 1em;
+        margin-right: 1.5em;
         border: 1px solid $font-color-primary;
         padding: 0.5em;
         border-radius: 30px;
