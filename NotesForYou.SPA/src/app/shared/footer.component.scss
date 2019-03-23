@@ -10,10 +10,10 @@
 
   .footer__content{
     @include flexDisplay(row, space-between, center);
+    font-family: 'Pacifico', cursive;
 
     .footer__logo{
       cursor: pointer;
-      font-family: 'Pacifico', cursive;
 
       .footer__logo-title{
         font-size: 2.5em;
@@ -30,15 +30,20 @@
 
       .list__item{
         margin-right: 1em;
+        border: 1px solid $font-color-primary;
+        padding: 0.5em;
+        border-radius: 30px;
+
+        &:hover{
+         background: $background-color-button;
+         .list__link{
+          color: $font-color-hover2;
+          }
+        }
 
         .list__link{
           text-decoration: none;
           color: $font-color-primary;
-
-          &:hover{
-            color: $font-color-hover;
-            text-decoration: underline;
-          }
         }
       }
     }
