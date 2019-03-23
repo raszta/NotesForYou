@@ -7,15 +7,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     height: stretch;
     font-family: 'Pacifico', cursive;
 
     .home__welcome{
-      margin: 5% auto;
+      margin: 3% auto 0 auto;
 
       .home__welcome-title{
         font-size: 2em;
+        color: rgb(31, 27, 27);
 
         @media screen and(min-width: $desktop-resolution){
           font-size: 4em;
@@ -24,7 +25,6 @@
     }
 
     .home__info{
-      border: 2px solid #cac2c2;
       padding: 1em;
 
       @media screen and(min-width: $desktop-resolution){
@@ -33,6 +33,8 @@
 
       .home__info-text{
         font-size: 1em;
+        color: rgb(31, 27, 27);
+        width: 7em;
 
          @media screen and(min-width: $desktop-resolution){
           font-size: 1.2em;
