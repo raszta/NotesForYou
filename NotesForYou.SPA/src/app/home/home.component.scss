@@ -1,6 +1,7 @@
 @import '../../scss/variables';
 
 .home{
+  position: relative;
 
   .home__container{
     display: flex;
@@ -11,7 +12,7 @@
     font-family: 'Pacifico', cursive;
 
     .home__welcome{
-      margin: 2% auto;
+      margin: 5% auto;
 
       .home__welcome-title{
         font-size: 2em;
@@ -23,7 +24,6 @@
     }
 
     .home__info{
-      margin: 2% auto;
       border: 2px solid #cac2c2;
       padding: 1em;
 
@@ -41,12 +41,13 @@
     }
 
     .home__gallery{
-      height: 20em;
-      width: 20em;
+      height: 80%;;
+      position: absolute;
+      z-index: -1;
 
       .home__gallery-image{
         height: 100%;
-        width: 100%;
+        z-index: -1;
       }
     }
   }
