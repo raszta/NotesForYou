@@ -11,7 +11,7 @@ import { NotesComponent } from './notes/notes.component';
 
 export const appRoutes: Routes = [
   {
-    path: 'home', component: HomeComponent
+    path: 'stronaGlowna', component: HomeComponent
   },
   {
     path: 'admin', component: DashboardComponent
@@ -39,7 +39,7 @@ export const appRoutes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/stronaGlowna',
     pathMatch: 'full'
   },
   {
