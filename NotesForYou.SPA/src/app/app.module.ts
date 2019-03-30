@@ -22,6 +22,7 @@ import { UsageComponent } from './usage/usage.component';
 import { HowWorksComponent } from './usage/how-works/how-works.component';
 import { NotesService } from './services/notes.service';
 import { UserService } from './services/user.service';
+import { NotesComponent } from './notes/notes.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { UserService } from './services/user.service';
     DashboardComponent,
     UsageComponent,
     HowWorksComponent,
+    NotesComponent,
   ],
   imports: [
     BrowserModule,
