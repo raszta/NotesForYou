@@ -19,6 +19,8 @@ import { UserModule } from './user/user.module';
 import { environment } from '../environments/environment.prod';
 import { UsageComponent } from './usage/usage.component';
 import { HowWorksComponent } from './usage/how-works/how-works.component';
+import { NotesService } from './services/notes.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { HowWorksComponent } from './usage/how-works/how-works.component';
   providers: [
     AuthGuard,
     RoleGuard,
+    NotesService,
+    UserService
     ],
   bootstrap: [AppComponent]
 })
