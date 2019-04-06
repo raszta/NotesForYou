@@ -14,10 +14,10 @@ namespace NotesForYou.API.Controllers {
     [Route ("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase {
-        private readonly AuthRepository _repository;
+        private readonly IAuthRepository _repository;
         private readonly IConfiguration _config;
 
-        public AuthController (AuthRepository repository, IConfiguration config) {
+        public AuthController (IAuthRepository repository, IConfiguration config) {
             _config = config;
             _repository = repository;
         }
