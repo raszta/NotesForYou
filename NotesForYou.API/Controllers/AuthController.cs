@@ -36,7 +36,7 @@ namespace NotesForYou.API.Controllers {
 
             var userCreated = _repository.Register (userToCreate, userToRegister.Password);
 
-            return StatusCode (201);
+            return Ok (userCreated);
 
         }
 
@@ -46,7 +46,7 @@ namespace NotesForYou.API.Controllers {
             var userFromRepo = await _repository.Login (userLoginDto.Username.ToLower (), userLoginDto.Password);
 
             if (userFromRepo == null)
-                return Unauthorized();
+                return Unauthorized ();
 
             var claims = new [] {
                 new Claim (ClaimTypes.NameIdentifier, userFromRepo.Id.ToString ()),
