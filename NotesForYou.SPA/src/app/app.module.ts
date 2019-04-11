@@ -23,6 +23,7 @@ import { HowWorksComponent } from './usage/how-works/how-works.component';
 import { NotesService } from './services/notes.service';
 import { UserService } from './services/user.service';
 import { NotesComponent } from './notes/notes.component';
+import { ErrorInterceptorProvider } from './services/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { NotesComponent } from './notes/notes.component';
     AuthGuard,
     RoleGuard,
     NotesService,
-    UserService
+    UserService,
+    ErrorInterceptorProvider
     ],
   bootstrap: [AppComponent]
 })
