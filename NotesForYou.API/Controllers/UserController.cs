@@ -10,7 +10,7 @@ using NotesForYou.API.Dtos;
 using NotesForYou.API.Helpers;
 
 namespace NotesForYou.API.Controllers {
-    // [ServiceFilter (typeof (LogUserActivity))]
+    [ServiceFilter (typeof (LogUserActivity))]
     [Route ("api/[controller]")]
     [Authorize]
     [ApiController]
