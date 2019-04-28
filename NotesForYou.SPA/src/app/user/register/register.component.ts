@@ -11,7 +11,6 @@ import { AlertifyService } from '../../services/alertify.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  @Output() cancelRegister = new EventEmitter();
   user: IUser;
   registerForm: FormGroup;
 
@@ -45,14 +44,14 @@ export class RegisterComponent implements OnInit {
 
       this.authService.register(this.user).subscribe(
         next => {
-          this.alertifyService.success('Successfully registered');
+          this.alertifyService.success('Zostałeś zarejestrowany poprawnie!');
         },
         error => {
           this.alertifyService.error(error);
         },
         () => {
           this.authService.login(this.user).subscribe(() => {
-            this.router.navigate(['/members']);
+            this.router.navigate(['/notatki']);
           });
         }
       );
@@ -64,7 +63,7 @@ export class RegisterComponent implements OnInit {
   }
 
   cancel() {
-    this.cancelRegister.emit(false);
-    this.alertifyService.message('cancelled');
+    this.router.navigateByUrl('/stronGlowna');
+    this.alertifyService.message('Anulowano');
   }
 }
