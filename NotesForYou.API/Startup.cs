@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -44,6 +45,7 @@ namespace NotesForYou {
                     };
                 });
             services.AddCors ();
+            services.AddAutoMapper ();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
