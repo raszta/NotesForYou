@@ -54,11 +54,6 @@ namespace NotesForYou.Migrations
                 table: "Users",
                 nullable: false,
                 defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
-
-            migrationBuilder.AddColumn<string>(
-                name: "LookingFor",
-                table: "Users",
-                nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -97,10 +92,6 @@ namespace NotesForYou.Migrations
 
             migrationBuilder.DropColumn(
                 name: "LastActive",
-                table: "Users");
-
-            migrationBuilder.DropColumn(
-                name: "LookingFor",
                 table: "Users");
         }
     }

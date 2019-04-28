@@ -15,7 +15,8 @@ import { NotFoundSiteComponent } from './not-found-site/not-found-site.component
   ],
   exports: [
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    NotFoundSiteComponent
   ]
 })
 export class SharedModule { }

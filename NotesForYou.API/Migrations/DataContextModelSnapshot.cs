@@ -39,8 +39,6 @@ namespace NotesForYou.Migrations
 
                     b.Property<DateTime>("LastActive");
 
-                    b.Property<string>("LookingFor");
-
                     b.Property<byte[]>("PasswordHash");
 
                     b.Property<byte[]>("PasswordSalt");

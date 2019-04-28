@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -24,7 +25,12 @@ import { NotesService } from './services/notes.service';
 import { UserService } from './services/user.service';
 import { NotesComponent } from './notes/notes.component';
 import { ErrorInterceptorProvider } from './services/error.interceptor';
+import { AlertifyService } from './services/alertify.service';
+import { AuthService } from './services/auth.service';
 
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,10 +56,19 @@ import { ErrorInterceptorProvider } from './services/error.interceptor';
     }),
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter,
+        blacklistedRoutes: ['localhost:5001/api/auth'],
+        whitelistedDomains: ['localhost:5001']
+      }
+    })
   ],
   providers: [
     AuthGuard,
     RoleGuard,
+    AlertifyService,
+    AuthService,
     NotesService,
     UserService,
     ErrorInterceptorProvider
