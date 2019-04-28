@@ -7,8 +7,8 @@ import { appRoutes } from './routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { JwtModule } from '@auth0/angular-jwt';
+import { NgxEditorModule } from 'ngx-editor';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -54,15 +54,14 @@ export function tokenGetter() {
       maxAge: 25,
       logOnly: environment.production
     }),
-    FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter,
         blacklistedRoutes: ['localhost:5001/api/auth'],
         whitelistedDomains: ['localhost:5001']
       }
-    })
+    }),
+    NgxEditorModule
   ],
   providers: [
     AuthGuard,

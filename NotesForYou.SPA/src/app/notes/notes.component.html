@@ -1,1 +1,10 @@
-<div [froalaEditor]></div>
+<section class="notes mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <app-ngx-editor [config]="editorConfig" [(ngModel)]="note"></app-ngx-editor>
+        {{note}}
+      </div>
+    </div>
+  </div>
+</section>
