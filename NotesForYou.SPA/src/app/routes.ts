@@ -4,11 +4,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserSettingsComponent } from './user/user-settings/user-settings.component';
 import { RegisterComponent } from './user/register/register.component';
 import { LoginComponent } from './user/login/login.component';
-import { HowWorksComponent } from './usage/how-works/how-works.component';
-import { UsageComponent } from './usage/usage.component';
 import { NotFoundSiteComponent } from './shared/not-found-site/not-found-site.component';
 import { NotesComponent } from './notes/notes.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AboutAppComponent } from './shared/about-app/about-app.component';
+import { HowUseComponent } from './shared/how-use/how-use.component';
+import { HowWorksNoteComponent } from './shared/how-works-note/how-works-note.component';
 
 export const appRoutes: Routes = [
   {
@@ -27,10 +28,13 @@ export const appRoutes: Routes = [
     path: 'logowanie', component: LoginComponent
   },
   {
-    path: 'jakDziala', component: HowWorksComponent
+    path: 'jakDziala', component: HowUseComponent
   },
   {
-    path: 'oAplikacji', component: UsageComponent
+    path: 'oAplikacji', component: AboutAppComponent
+  },
+  {
+    path: 'notatkaPrzyklad', component: HowWorksNoteComponent
   },
   {
     path: 'notatki', component: NotesComponent, canActivate: [AuthGuard]

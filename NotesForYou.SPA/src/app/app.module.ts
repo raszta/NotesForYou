@@ -19,8 +19,6 @@ import { RoleGuard } from './guards/role.guard';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 import { environment } from '../environments/environment.prod';
-import { UsageComponent } from './usage/usage.component';
-import { HowWorksComponent } from './usage/how-works/how-works.component';
 import { NotesService } from './services/notes.service';
 import { UserService } from './services/user.service';
 import { NotesComponent } from './notes/notes.component';
@@ -36,8 +34,6 @@ export function tokenGetter() {
     AppComponent,
     HomeComponent,
     DashboardComponent,
-    UsageComponent,
-    HowWorksComponent,
     NotesComponent,
   ],
   imports: [
