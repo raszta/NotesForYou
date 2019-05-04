@@ -10,14 +10,14 @@ export class NotesComponent implements OnInit {
   editorConfig = {
   'editable': true,
     'spellcheck': true,
-    'height': '200',
-    'minHeight': '100',
+    'height': '400px',
+    'minHeight': '400',
     'width': 'auto',
     'minWidth': '100',
     'translate': 'yes',
     'enableToolbar': true,
     'showToolbar': true,
-    'placeholder': 'Enter text here...',
+    'placeholder': 'Wpisz swoją notatkę...',
     'imageEndPoint': '',
     'toolbar': [
       ['bold', 'italic', 'underline', 'strikeThrough', 'superscript', 'subscript'],

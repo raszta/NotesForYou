@@ -1,10 +1,22 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanActivate } from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivate, Router } from '@angular/router';
+import { AlertifyService } from '../services/alertify.service';
+import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate  {
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
-    throw new Error('Method not implemented.');
+  constructor(
+    private router: Router,
+    private alertify: AlertifyService,
+    private authService: AuthService
+  ) {
+  }
+  canActivate(): boolean {
+    if (this.authService.loggedIn()) {
+      return true;
+    }
+    this.alertify.message('Zaloguj się aby mieć dostęp!');
+    this.router.navigate(['/stronaGlowna']);
+    return false;
   }
 }

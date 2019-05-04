@@ -2,7 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <app-ngx-editor [config]="editorConfig" [(ngModel)]="note"></app-ngx-editor>
+        <div class="editor__container">
+          <app-ngx-editor [config]="editorConfig" [(ngModel)]="note" resizer="basic"></app-ngx-editor>
+          <button class="btn btn-primary">Zapisz notatkę</button>
+        </div>
         {{note}}
       </div>
     </div>

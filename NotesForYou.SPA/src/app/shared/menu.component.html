@@ -4,10 +4,15 @@
       <div class="menu__logo">
         <h4 class="menu__logo-title"><a href="" class="title__link">NotesForYou</a></h4>
       </div>
-      <ul class="menu__links">
+      <ul class="menu__links" *ngIf="!authService.loggedIn()">
         <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/notatki']">Sprawdź jak działa notatka</a></li>
         <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/logowanie']">Zaloguj się</a></li>
         <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/rejestracja']">Stwórz konto</a></li>
+      </ul>
+      <ul class="menu__links" *ngIf="authService.loggedIn()">
+        <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/notatki']">Twoje notatki</a></li>
+        <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/ustawienia']">Twój profil</a></li>
+        <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/rejestracja']">Wyloguj się</a></li>
       </ul>
     </div>
   </div>

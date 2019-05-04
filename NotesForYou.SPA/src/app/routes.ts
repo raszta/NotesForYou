@@ -8,6 +8,7 @@ import { HowWorksComponent } from './usage/how-works/how-works.component';
 import { UsageComponent } from './usage/usage.component';
 import { NotFoundSiteComponent } from './shared/not-found-site/not-found-site.component';
 import { NotesComponent } from './notes/notes.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const appRoutes: Routes = [
   {
@@ -32,7 +33,7 @@ export const appRoutes: Routes = [
     path: 'oAplikacji', component: UsageComponent
   },
   {
-    path: 'notatki', component: NotesComponent
+    path: 'notatki', component: NotesComponent, canActivate: [AuthGuard]
   },
   {
     path: '404', component: NotFoundSiteComponent
