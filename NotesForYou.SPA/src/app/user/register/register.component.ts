@@ -1,5 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Validators, FormControl, FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUser } from '../../models/user';
 import { AuthService } from '../../services/auth.service';
@@ -63,7 +63,7 @@ export class RegisterComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigateByUrl('/stronGlowna');
+    this.router.navigateByUrl('/stronaGlowna');
     this.alertifyService.message('Anulowano');
   }
 }

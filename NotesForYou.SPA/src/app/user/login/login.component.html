@@ -1,3 +1,43 @@
 <section class="login">
-
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <form [formGroup]="loginForm" class="login__form" (ngSubmit)="logIn()">
+          <div class="register__welcome">
+            <h2 class="register__welcome-title">Logowanie</h2>
+          </div>
+          <div class="form-group">
+            <input class="form-control"
+              [ngClass]="{'is-invalid': loginForm.get('username').errors && loginForm.get('username').touched}" type="text"
+              formControlName="username" placeholder="Login">
+            <div class="invalid-feedback"
+              *ngIf="loginForm.get('username').touched && loginForm.get('username').hasError('required')">
+              Login jest wymagany.
+            </div>
+          </div>
+          <div class="form-group">
+            <input class="form-control"
+              [ngClass]="{'is-invalid': loginForm.get('password').errors && loginForm.get('password').touched}"
+              type="password" formControlName="password" placeholder="Hasło">
+            <div class="invalid-feedback"
+              *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
+              Hasło jest wymagane.
+            </div>
+            <div class="invalid-feedback"
+              *ngIf="loginForm.get('password').hasError('minlength') && loginForm.get('password').touched">
+              Hasło musi mieć minimum 4 znaki.
+            </div>
+            <div class="invalid-feedback"
+              *ngIf="loginForm.get('password').hasError('maxlength') && loginForm.get('password').touched">
+              Hasło nie może przekraczać 8 znaków.
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <button class="btn btn-primary mr-2" [disabled]="!loginForm.valid" type="submit">Zaloguj</button>
+            <button class="btn btn-primary" type="button" (click)="cancel()">Anuluj</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </section>
