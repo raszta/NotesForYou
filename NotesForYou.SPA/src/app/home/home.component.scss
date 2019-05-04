@@ -1,22 +1,20 @@
 @import '../../scss/variables';
+@import '../../scss/mixin';
 
 .home{
   position: relative;
 
   .home__container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    height: stretch;
+    @include flexDisplay(column, center, center);
+    height: 60em;
     font-family: 'Pacifico', cursive;
 
     .home__welcome{
-      margin: 3% auto 0 auto;
+      margin: 0 auto 25% auto;
 
       .home__welcome-title{
-        font-size: 2em;
-        color: rgb(31, 27, 27);
+        font-size: 4em;
+        color: $font-color-primary;
 
         @media screen and(min-width: $desktop-resolution){
           font-size: 4em;
@@ -33,7 +31,7 @@
 
       .home__info-text{
         font-size: 1em;
-        color: rgb(31, 27, 27);
+        color: $font-color-primary;
         width: 7em;
 
          @media screen and(min-width: $desktop-resolution){
