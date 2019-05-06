@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BsDropdownModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap';
+import { MemberEditResolver } from '../resolvers/member-edit.resolver';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { BsDropdownModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap'
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     TabsModule.forRoot(),
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
@@ -26,6 +28,7 @@ import { BsDropdownModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap'
     UserSettingsComponent
   ],
   providers: [
+    MemberEditResolver
   ],
 })
 export class UserModule { }

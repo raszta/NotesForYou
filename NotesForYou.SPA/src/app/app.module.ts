@@ -25,6 +25,7 @@ import { NotesComponent } from './notes/notes.component';
 import { ErrorInterceptorProvider } from './services/error.interceptor';
 import { AlertifyService } from './services/alertify.service';
 import { AuthService } from './services/auth.service';
+import { PreventUnsavedChanges } from './guards/prevent-unsaved-changes.guard';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -66,7 +67,8 @@ export function tokenGetter() {
     AuthService,
     NotesService,
     UserService,
-    ErrorInterceptorProvider
+    ErrorInterceptorProvider,
+    PreventUnsavedChanges,
     ],
   bootstrap: [AppComponent]
 })

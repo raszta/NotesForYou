@@ -1,21 +1,47 @@
-<section class="user-settings">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="user-settings__container">
-          <div class="user-settings__welcome">
-            <h2 class="user-settings__welcome-title">Ustawienia użytkownika</h2>
-          </div>
-          <div class="user-settings__settings">
-            <div class="user-settings__mail">
-              <h6 class="user-settings__mail-title">Twój Mail</h6>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-sm-4">
+      <h1>Your Profile</h1>
+    </div>
+    <div class="col-sm-8">
+      <div *ngIf="editForm.dirty" class="alert alert-info">
+        <strong>Information:</strong> You have made changes. Any unsaved changes will be lost!
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="member-tabset">
+          <tab heading="Twój profil">
+            <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
+              <div class="form-group">
+                <h4>Kilka słów o sobie</h4>
+                <textarea name="introduction" class="form-control" rows="6" [(ngModel)]="user.introduction"></textarea>
+              </div>
+              <div class="form-group">
+                <h4>Lokalizacja</h4>
+                <label for="city">Miasto</label>
+                <input type="text" class="form-control" name="city" [(ngModel)]="user.city">
+              </div>
+              <div class="form-group">
+                <label for="country">Państwo</label>
+                <input type="text" class="form-control" name="country" [(ngModel)]="user.country">
+              </div>
+            </form>
+          </tab>
+          <tab heading="Zainteresowania">
+            <div class="form-group">
+              <h4>Zainteresowania</h4>
+              <textarea name="interests" class="form-control" rows="6" [(ngModel)]="user.interests"></textarea>
             </div>
-            <div class="user-settings__password">
-              <h6 class="user-settings__password-title">Zmiana hasła</h6>
-            </div>
-          </div>
+          </tab>
+        </tabset>
+        <div class="card-footer">
+          <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">Save changes</button>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
+

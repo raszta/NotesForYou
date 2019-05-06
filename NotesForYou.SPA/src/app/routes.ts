@@ -10,6 +10,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { AboutAppComponent } from './shared/about-app/about-app.component';
 import { HowUseComponent } from './shared/how-use/how-use.component';
 import { HowWorksNoteComponent } from './shared/how-works-note/how-works-note.component';
+import { MemberEditResolver } from './resolvers/member-edit.resolver';
+import { PreventUnsavedChanges } from './guards/prevent-unsaved-changes.guard';
 
 export const appRoutes: Routes = [
   {
@@ -19,7 +21,9 @@ export const appRoutes: Routes = [
     path: 'admin', component: DashboardComponent
   },
   {
-    path: 'ustawienia', component: UserSettingsComponent
+    runGuardsAndResolvers: 'always',
+    path: 'ustawienia', component: UserSettingsComponent, resolve: { user: MemberEditResolver },
+    canDeactivate: [PreventUnsavedChanges]
   },
   {
     path: 'rejestracja', component: RegisterComponent
