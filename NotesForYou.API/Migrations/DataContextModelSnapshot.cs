@@ -21,7 +21,7 @@ namespace NotesForYou.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AuthorId");
+                    b.Property<int>("AuthorId");
 
                     b.Property<string>("Content");
 
@@ -73,8 +73,9 @@ namespace NotesForYou.Migrations
             modelBuilder.Entity("NotesForYou.API.Models.Note", b =>
                 {
                     b.HasOne("NotesForYou.API.Models.User", "Author")
-                        .WithMany()
-                        .HasForeignKey("AuthorId");
+                        .WithMany("UserNotes")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
