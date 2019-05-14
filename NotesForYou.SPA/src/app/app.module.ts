@@ -26,6 +26,7 @@ import { ErrorInterceptorProvider } from './services/error.interceptor';
 import { AlertifyService } from './services/alertify.service';
 import { AuthService } from './services/auth.service';
 import { PreventUnsavedChanges } from './guards/prevent-unsaved-changes.guard';
+import { MemberEditResolver } from './resolvers/member-edit.resolver';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -69,6 +70,7 @@ export function tokenGetter() {
     UserService,
     ErrorInterceptorProvider,
     PreventUnsavedChanges,
+    MemberEditResolver
     ],
   bootstrap: [AppComponent]
 })

@@ -21,7 +21,7 @@ export class MemberEditResolver implements Resolve<IUser> {
     return this.userService.getUser(this.authService.decodedToken.nameid).pipe(
       catchError( error => {
         this.alertify.error('Problem z załadowaniem danych');
-        this.router.navigate(['/stronGlowna']);
+        this.router.navigate(['/stronaGlowna']);
         return of(null);
       })
     );

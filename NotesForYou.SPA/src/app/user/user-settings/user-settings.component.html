@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row mt-4">
     <div class="col-sm-4">
-      <h1>Your Profile</h1>
+      <h1>Twój Profil</h1>
     </div>
     <div class="col-sm-8">
       <div *ngIf="editForm.dirty" class="alert alert-info">
-        <strong>Information:</strong> You have made changes. Any unsaved changes will be lost!
+        <strong>Uwaga:</strong>Zapisz zmiany. Informacje niezapisane zostaną utracone!
       </div>
     </div>
   </div>
@@ -38,7 +38,7 @@
           </tab>
         </tabset>
         <div class="card-footer">
-          <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">Save changes</button>
+          <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">Zapisz zmiany</button>
         </div>
       </div>
     </div>

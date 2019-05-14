@@ -14,6 +14,7 @@ namespace NotesForYou.API.Helpers {
                     opt.ResolveUsing (d => d.DateOfBirth.CalculateAge ());
                 });
             CreateMap<UserToRegisterDto, User> ();
+            CreateMap<UserForUpdateDto, User> ();
         }
     }
 }
