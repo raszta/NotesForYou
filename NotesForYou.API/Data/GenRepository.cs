@@ -1,35 +1,43 @@
-// using System.Collections.Generic;
-// using System.Threading.Tasks;
-// using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using NotesForYou.API.Models;
 
-// namespace NotesForYou.API.Data {
-//     public class GenRepository<T> : IGenRepository<T> where T : class {
-//         private readonly DataContext _context;
-//         // private readonly DbSet _table;
+namespace NotesForYou.API.Data {
+    public class GenRepository<T> : IGenRepository<T> where T : BaseEntity {
+        private readonly DataContext _context;
+        private readonly DbSet<T> entities;
 
-//         public GenRepository (DataContext context) {
-//             _context = context;
-//             // _table = table.Set(T);
-//         }
+        public GenRepository (DataContext context) {
+            _context = context;
+            entities = _context.Set<T> ();
+        }
 
-//         public void Add (T entity) {
-//             _context.Add (entity);
-//         }
+        public void Add (T entity) {
+            if (entity == null) {
+                throw new ArgumentNullException ("entity");
+            }
+            _context.Add (entity);
+        }
 
-//         public void Delete (T entity) {
-//             _context.Remove (entity);
-//         }
+        public void Delete (T entity) {
+            if (entity == null) {
+                throw new ArgumentNullException ("entity");
+            }
+            _context.Remove (entity);
+        }
 
-//         public async Task<T> Get (int id) {
-//             // return await _context.Users.FirstOrDefaultAsync( u => u.Id == id);
-//         }
+        public async Task<T> Get (int id) {
+            return await entities.SingleOrDefaultAsync (e => e.Id == id);
+        }
 
-//         public async Task<IEnumerable<T>> GetAll () {
-//             throw new System.NotImplementedException ();
-//         }
+        public async Task<IEnumerable<T>> GetAll () {
+            return await entities.ToListAsync ();
+        }
 
-//         public async Task<bool> SaveAll () {
-//             throw new System.NotImplementedException ();
-//         }
-//     }
-// }
+        public async Task<bool> SaveAll () {
+            return await _context.SaveChangesAsync () > 0;
+        }
+    }
+}

@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 
 namespace NotesForYou.API.Models {
-    public class User {
-        public int Id { get; set; }
+    public class User : BaseEntity
+    {
 
         public string Username { get; set; }
         public byte[] PasswordHash { get; set; }
