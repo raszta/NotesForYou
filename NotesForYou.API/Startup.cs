@@ -35,6 +35,7 @@ namespace NotesForYou {
             services.AddMvc ().SetCompatibilityVersion (CompatibilityVersion.Version_2_2);
             services.AddScoped<IAuthRepository, AuthRepository> ();
             services.AddScoped<IGenericRepository, GenericRepository> ();
+            services.AddScoped(typeof(IGenRepository<>), typeof(GenRepository<>));
             services.AddAuthentication (JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer (options => {
                     options.TokenValidationParameters = new TokenValidationParameters {
