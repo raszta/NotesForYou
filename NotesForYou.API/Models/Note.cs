@@ -10,5 +10,9 @@ namespace NotesForYou.API.Models
         public DateTime DateCreated { get; set; }
         public string Content { get; set; }
         public bool GoldenThought { get; set; }
+
+        public Note() {
+            DateCreated = DateTime.Now;
+        }
     }
 }
