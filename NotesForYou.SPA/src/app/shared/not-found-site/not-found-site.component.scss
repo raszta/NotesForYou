@@ -20,3 +20,18 @@
     }
   }
 }
+
+@keyframes shaking{
+  0% {
+    transform: rotateX('45');
+  }
+  50% {
+    transform: rotate3d('30');
+  }
+  75% {
+    transform: rotateX('-45');
+  }
+  100% {
+    transform: rotate3d('-30');
+  }
+}

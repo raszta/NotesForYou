@@ -15,6 +15,8 @@ namespace NotesForYou.API.Helpers {
                 });
             CreateMap<UserToRegisterDto, User> ();
             CreateMap<UserForUpdateDto, User> ();
+            CreateMap<NoteToUpdateDto, Note> ();
+            CreateMap<NoteForGoldenThoughtDto, Note> ();
         }
     }
 }

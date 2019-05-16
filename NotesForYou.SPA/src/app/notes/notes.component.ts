@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesComponent implements OnInit {
   note: any;
+
   editorConfig = {
   'editable': true,
     'spellcheck': true,

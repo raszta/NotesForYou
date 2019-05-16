@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="editor__container">
           <app-ngx-editor [config]="editorConfig" [(ngModel)]="note" resizer="basic"></app-ngx-editor>
-          <button class="btn btn-primary">Zapisz notatkę</button>
+          <button class="btn btn-primary" (click)="saveNote(user.id)">Zapisz notatkę</button>
         </div>
         {{note}}
       </div>

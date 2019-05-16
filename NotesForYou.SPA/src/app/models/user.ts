@@ -1,3 +1,4 @@
+import { INote } from './note';
 
 export interface IUser {
   id: number;
@@ -11,4 +12,5 @@ export interface IUser {
   country: string;
   interests?: string;
   introduction?: string;
+  userNotes: INote[];
 }

@@ -1,0 +1,30 @@
+@import '../../../scss/mixin';
+@import '../../../scss/variables';
+@import '../../../scss/typography';
+
+.about{
+  margin: 4em 0;
+
+  .about__header{
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+
+    .header__title{
+      font-size: 3em;
+      text-transform: uppercase;
+      color: $font-color-primary;
+    }
+
+    .header__text{
+      font-size: 90%;
+    }
+  }
+
+  .about__description{
+    text-align: center;
+
+    .description__text{
+      font-size: 90%;
+    }
+  }
+}
