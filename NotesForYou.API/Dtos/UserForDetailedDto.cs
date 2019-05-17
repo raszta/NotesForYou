@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using NotesForYou.API.Models;
 
 namespace NotesForYou.API.Dtos {
     public class UserForDetailedDto {
@@ -13,5 +15,6 @@ namespace NotesForYou.API.Dtos {
         public string Introduction { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
+        public IEnumerable<Note> UserNotes { get; set; }
     }
 }

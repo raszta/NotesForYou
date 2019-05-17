@@ -1,13 +1,15 @@
+using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NotesForYou.API.Data;
+using NotesForYou.API.Dtos;
 using NotesForYou.API.Models;
 
 namespace NotesForYou.API.Controllers {
-    [Route ("api/[controller]")]
+    [Route ("api/[controller]/{userId}")]
     [Authorize]
     [ApiController]
     public class NotesController : ControllerBase {
@@ -35,7 +37,7 @@ namespace NotesForYou.API.Controllers {
             return Ok (note);
         }
 
-        [HttpGet ("{userId}/myNote/{id}")]
+        [HttpGet ("myNote/{id}", Name="GetNote")]
         public async Task<IActionResult> GetNoteFromUser (int userId, int id) {
             if (userId != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value)) {
                 return Unauthorized ();
@@ -49,7 +51,7 @@ namespace NotesForYou.API.Controllers {
             return Ok (noteFromRepo);
         }
 
-        [HttpGet ("{userId}/myNote")]
+        [HttpGet ("myNotes")]
         public async Task<IActionResult> GetNotesFromUser (int userId) {
             if (userId != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value)) {
                 return Unauthorized ();
@@ -61,6 +63,28 @@ namespace NotesForYou.API.Controllers {
             }
 
             return Ok (notesFromRepo);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateNote (int userId, NoteForCreationDto noteForCreationDto) {
+            if (userId != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value)) {
+                return Unauthorized ();
+            }
+
+            if (noteForCreationDto == null) {
+                return BadRequest ();
+            }
+            noteForCreationDto.AuthorId = userId;
+            var note = _mapper.Map<Note> (noteForCreationDto);
+            _repo.Add (note);
+
+            if (await _repo.SaveAll ()) {
+                var noteToReturn = _mapper.Map<NoteToReturnDto> (note);
+                return CreatedAtRoute("GetNote", new {id = note.Id},noteToReturn);
+            }
+
+            throw new Exception ("Błąd przy zapisywaniu");
+
         }
     }
 }
