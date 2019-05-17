@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using NotesForYou.API.Data;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
+using NotesForYou.API.Models;
 
 namespace NotesForYou.API.Helpers {
     public class LogUserActivity : IAsyncActionFilter
@@ -14,9 +15,9 @@ namespace NotesForYou.API.Helpers {
 
             var userId = int.Parse(resultContext.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
-            var repo = resultContext.HttpContext.RequestServices.GetService<IGenericRepository>();
+            var repo = resultContext.HttpContext.RequestServices.GetService<IGenericRepository<User>>();
 
-            var user =await repo.GetUser(userId);
+            var user =await repo.Get(userId);
 
             user.LastActive = DateTime.Now;
 

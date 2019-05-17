@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using NotesForYou.API.Data;
 using NotesForYou.API.Dtos;
 using NotesForYou.API.Helpers;
+using NotesForYou.API.Models;
 
 namespace NotesForYou.API.Controllers {
     // [ServiceFilter (typeof (LogUserActivity))]
@@ -15,17 +16,17 @@ namespace NotesForYou.API.Controllers {
     [Authorize]
     [ApiController]
     public class UsersController : ControllerBase {
-        private readonly IGenericRepository _repo;
+        private readonly IGenericRepository<User> _repo;
         private readonly IMapper _mapper;
 
-        public UsersController (IGenericRepository repo, IMapper mapper) {
+        public UsersController (IGenericRepository<User> repo, IMapper mapper) {
             _repo = repo;
             _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetUsers () {
-            var users = await _repo.GetUsers ();
+            var users = await _repo.GetAll ();
 
             var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>> (users);
 
@@ -34,7 +35,7 @@ namespace NotesForYou.API.Controllers {
 
         [HttpGet ("{id}", Name = "GetUser")]
         public async Task<IActionResult> GetUser (int id) {
-            var user = await _repo.GetUser (id);
+            var user = await _repo.Get (id);
 
             var userToReturn = _mapper.Map<UserForDetailedDto> (user);
 
@@ -47,7 +48,7 @@ namespace NotesForYou.API.Controllers {
                 return Unauthorized ();
             }
 
-            var userFromRepo = await _repo.GetUser (id);
+            var userFromRepo = await _repo.Get (id);
 
             _mapper.Map (userForUpdate, userFromRepo);
 

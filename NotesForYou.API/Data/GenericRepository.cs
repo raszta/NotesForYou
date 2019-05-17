@@ -1,34 +1,39 @@
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using NotesForYou.API.Models;
 using Microsoft.EntityFrameworkCore;
+using NotesForYou.API.Models;
 
 namespace NotesForYou.API.Data {
-    public class GenericRepository : IGenericRepository {
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity {
         private readonly DataContext _context;
+        private readonly DbSet<T> entities;
+
         public GenericRepository (DataContext context) {
             _context = context;
-
+            entities = _context.Set<T> ();
         }
-        public void Add<T> (T entity) where T : class {
+
+        public void Add (T entity) {
+            if (entity == null) {
+                throw new ArgumentNullException ("entity");
+            }
             _context.Add (entity);
         }
 
-        public void Delete<T> (T entity) where T : class {
+        public void Delete (T entity) {
+            if (entity == null) {
+                throw new ArgumentNullException ("entity");
+            }
             _context.Remove (entity);
         }
 
-        public async Task<IEnumerable<User>> GetUsers () {
-            var users = await _context.Users.ToListAsync ();
-
-            return users;
+        public async Task<T> Get (int id) {
+            return await entities.FirstOrDefaultAsync (e => e.Id == id);
         }
 
-        public async Task<User> GetUser (int id) {
-            var user = await _context.Users.FirstOrDefaultAsync (u => u.Id == id);
-
-            return user;
+        public async Task<IEnumerable<T>> GetAll () {
+            return await entities.ToListAsync ();
         }
 
         public async Task<bool> SaveAll () {

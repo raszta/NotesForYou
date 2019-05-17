@@ -10,10 +10,10 @@ namespace NotesForYou.API.Controllers {
     [Authorize]
     [ApiController]
     public class NotesController : ControllerBase {
-        private readonly IGenRepository<Note> _repo;
+        private readonly IGenericRepository<Note> _repo;
         private readonly IMapper _mapper;
 
-        public NotesController (IGenRepository<Note> repo, IMapper mapper) {
+        public NotesController (IGenericRepository<Note> repo, IMapper mapper) {
             _repo = repo;
             _mapper = mapper;
         }
@@ -23,6 +23,13 @@ namespace NotesForYou.API.Controllers {
             var notes = await _repo.GetAll ();
 
             return Ok (notes);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetNote ( int id) {
+            var note = await _repo.Get (id);
+
+            return Ok (note);
         }
     }
 }
