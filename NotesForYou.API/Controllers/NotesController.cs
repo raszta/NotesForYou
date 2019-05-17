@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -37,7 +38,7 @@ namespace NotesForYou.API.Controllers {
             return Ok (note);
         }
 
-        [HttpGet ("myNote/{id}", Name="GetNote")]
+        [HttpGet ("myNote/{id}", Name = "GetNote")]
         public async Task<IActionResult> GetNoteFromUser (int userId, int id) {
             if (userId != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value)) {
                 return Unauthorized ();
@@ -47,8 +48,8 @@ namespace NotesForYou.API.Controllers {
             if (noteFromRepo == null) {
                 return NotFound ();
             }
-
-            return Ok (noteFromRepo);
+            var noteToReturn = _mapper.Map<NoteToReturnDto> (noteFromRepo);
+            return Ok (noteToReturn);
         }
 
         [HttpGet ("myNotes")]
@@ -61,8 +62,8 @@ namespace NotesForYou.API.Controllers {
             if (notesFromRepo == null) {
                 return NotFound ();
             }
-
-            return Ok (notesFromRepo);
+            var notesToReturn = _mapper.Map<IEnumerable<NoteToReturnDto>> (notesFromRepo);
+            return Ok (notesToReturn);
         }
 
         [HttpPost]
@@ -80,7 +81,7 @@ namespace NotesForYou.API.Controllers {
 
             if (await _repo.SaveAll ()) {
                 var noteToReturn = _mapper.Map<NoteToReturnDto> (note);
-                return CreatedAtRoute("GetNote", new {id = note.Id},noteToReturn);
+                return CreatedAtRoute ("GetNote", new { id = note.Id }, noteToReturn);
             }
 
             throw new Exception ("Błąd przy zapisywaniu");
