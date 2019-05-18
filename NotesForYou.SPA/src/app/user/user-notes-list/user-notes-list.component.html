@@ -1,0 +1,6 @@
+<div *ngFor="let note of notes" class="col-lg-2 col-md-3 col-sm-6">
+  <p>{{note.content}}</p>
+  <p>{{note.dateCreated | date}}</p>
+  <p *ngIf="note.goldenThought == false">Nie</p>
+  <p *ngIf="note.goldenThought == true">Tak</p>
+</div>

@@ -10,9 +10,9 @@
         <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/rejestracja']">Stwórz konto</a></li>
       </ul>
       <ul class="menu__links" *ngIf="authService.loggedIn()">
-        <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/notatki']">Twoje notatki</a></li>
+        <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/twojeNotatki']">Twoje notatki</a></li>
         <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/ustawienia']">Twój profil</a></li>
-        <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/rejestracja']">Wyloguj się</a></li>
+        <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/logowanie']" (click)="logout()">Wyloguj się</a></li>
       </ul>
     </div>
   </div>

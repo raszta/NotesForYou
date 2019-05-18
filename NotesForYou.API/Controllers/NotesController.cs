@@ -10,7 +10,7 @@ using NotesForYou.API.Dtos;
 using NotesForYou.API.Models;
 
 namespace NotesForYou.API.Controllers {
-    [Route ("api/[controller]/{userId}")]
+    [Route ("api/[controller]")]
     [Authorize]
     [ApiController]
     public class NotesController : ControllerBase {
@@ -31,14 +31,14 @@ namespace NotesForYou.API.Controllers {
             return Ok (notes);
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetNote (int id) {
             var note = await _repo.Get (id);
 
             return Ok (note);
         }
 
-        [HttpGet ("mojaNotatka/{id}", Name = "GetNote")]
+        [HttpGet ("{userId}/mojaNotatka/{id}", Name = "GetNote")]
         public async Task<IActionResult> GetNoteFromUser (int userId, int id) {
             if (userId != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value)) {
                 return Unauthorized ();
@@ -52,7 +52,7 @@ namespace NotesForYou.API.Controllers {
             return Ok (noteToReturn);
         }
 
-        [HttpGet ("mojeNotatki")]
+        [HttpGet ("{userId}/mojeNotatki")]
         public async Task<IActionResult> GetNotesFromUser (int userId) {
             if (userId != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value)) {
                 return Unauthorized ();
@@ -88,7 +88,7 @@ namespace NotesForYou.API.Controllers {
 
         }
 
-        [HttpPut ("edycja/{id}")]
+        [HttpPut ("{userId}/edycja/{id}")]
         public async Task<IActionResult> UpdateNote (int userId, int id, NoteToUpdateDto noteToUpdate) {
             if (userId != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value)) {
                 return Unauthorized ();
@@ -108,13 +108,18 @@ namespace NotesForYou.API.Controllers {
             throw new Exception ($"Notatka {id} nie została poprawnie edytowana!");
         }
 
-        [HttpDelete ("usun/{id}")]
+        [HttpDelete ("{userId}/usun/{id}")]
         public async Task<IActionResult> DeleteNote (int userId, int id) {
             if (userId != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value)) {
                 return Unauthorized ();
             }
 
             var noteFromRepo = await _noteRepo.GetUserNote (userId, id);
+
+            if (noteFromRepo == null) {
+                return BadRequest ("Nie znaleziono notatki.");
+            }
+
             _noteRepo.Delete (noteFromRepo);
 
             if (await _noteRepo.SaveAll ()) {

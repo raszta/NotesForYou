@@ -12,6 +12,8 @@ import { HowUseComponent } from './shared/how-use/how-use.component';
 import { HowWorksNoteComponent } from './shared/how-works-note/how-works-note.component';
 import { MemberEditResolver } from './resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './guards/prevent-unsaved-changes.guard';
+import { UserNotesListComponent } from './user/user-notes-list/user-notes-list.component';
+import { NotesListResolver } from './resolvers/notes-list.resolver';
 
 export const appRoutes: Routes = [
   {
@@ -24,6 +26,10 @@ export const appRoutes: Routes = [
     runGuardsAndResolvers: 'always',
     path: 'ustawienia', component: UserSettingsComponent, resolve: { user: MemberEditResolver },
     canDeactivate: [PreventUnsavedChanges]
+  },
+  {
+    runGuardsAndResolvers: 'always',
+    path: 'twojeNotatki', component: UserNotesListComponent, resolve: { user: NotesListResolver },
   },
   {
     path: 'rejestracja', component: RegisterComponent

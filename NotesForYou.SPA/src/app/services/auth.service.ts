@@ -40,4 +40,9 @@ export class AuthService {
   register(user: IUser) {
     return this.http.post(this.baseUrl + 'register', user);
   }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+  }
 }
