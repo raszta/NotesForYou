@@ -95,6 +95,11 @@ namespace NotesForYou.API.Controllers {
             }
 
             var noteFromRepo = await _noteRepo.GetUserNote (userId, id);
+
+            if (noteFromRepo == null) {
+                return BadRequest ("Nie znaleziono notatki.");
+            }
+
             _mapper.Map (noteToUpdate, noteFromRepo);
 
             if (await _noteRepo.SaveAll ()) {
@@ -103,7 +108,7 @@ namespace NotesForYou.API.Controllers {
             throw new Exception ($"Notatka {id} nie została poprawnie edytowana!");
         }
 
-        [HttpDelete("usun/{id}")]
+        [HttpDelete ("usun/{id}")]
         public async Task<IActionResult> DeleteNote (int userId, int id) {
             if (userId != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value)) {
                 return Unauthorized ();

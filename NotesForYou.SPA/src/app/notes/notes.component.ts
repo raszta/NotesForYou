@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { INote } from '../models/note';
+import { NotesService } from '../services/notes.service';
+import { AuthService } from '../services/auth.service';
+import { AlertifyService } from '../services/alertify.service';
 
 @Component({
   selector: 'app-notes',
@@ -6,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes.component.scss']
 })
 export class NotesComponent implements OnInit {
-  note: any;
+  note: any = {};
 
   editorConfig = {
   'editable': true,
@@ -28,9 +32,24 @@ export class NotesComponent implements OnInit {
       ['paragraph', 'blockquote', 'removeBlockquote', 'horizontalLine', 'orderedList', 'unorderedList'],
                   ]
 };
-  constructor() { }
+  constructor(
+    private noteService: NotesService,
+    private authService: AuthService,
+    private alertify: AlertifyService
+  ) { }
 
   ngOnInit() {
+  }
+
+  saveNote() {
+    console.log(this.note.content);
+
+    this.noteService.addNote(this.authService.decodedToken.nameid, this.note).subscribe( next => {
+      this.alertify.success('Dodano notatkę');
+    },
+    error => {
+      this.alertify.error(error);
+    });
   }
 
 }

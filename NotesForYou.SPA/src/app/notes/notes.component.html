@@ -3,11 +3,20 @@
     <div class="row">
       <div class="col-md-12">
         <div class="editor__container">
-          <app-ngx-editor [config]="editorConfig" [(ngModel)]="note" resizer="basic"></app-ngx-editor>
-          <button class="btn btn-primary" (click)="saveNote(user.id)">Zapisz notatkę</button>
-        </div>
-        {{note}}
+          <form #noteForm="ngForm" (ngSubmit)="noteForm.valid && saveNote()">
+            <div class="input-group">
+              <app-ngx-editor [config]="editorConfig" [(ngModel)]="note.content" name="content" resizer="basic"></app-ngx-editor>
+            </div>
+            <div class="input-group-append">
+                <button class="btn btn-primary">Zapisz notatkę</button>
+            </div>
+          </form>
+
+        {{note.content}}
       </div>
     </div>
+    </div>
   </div>
+
+  <p *ngFor="let message of messages"></p>
 </section>
