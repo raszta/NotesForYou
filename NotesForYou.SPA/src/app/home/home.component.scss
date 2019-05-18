@@ -3,14 +3,27 @@
 
 .home{
   position: relative;
+  height: calc(100vh - 11em);
+
+  .home__gallery{
+      height: 100%;
+      width: 100vw;
+      position: absolute;
+      z-index: -1;
+
+      .home__gallery-image{
+        height: 100%;
+        width: 100%;
+        filter: opacity(0.75);
+      }
+    }
 
   .home__container{
     @include flexDisplay(column, center, center);
-    height: 60em;
     font-family: 'Pacifico', cursive;
 
     .home__welcome{
-      margin: 0 auto 25% auto;
+      margin: 1em auto 25% auto;
 
       .home__welcome-title{
         font-size: 4em;
@@ -32,22 +45,11 @@
       .home__info-text{
         font-size: 1em;
         color: $font-color-primary;
-        width: 7em;
+        width: 20em;
 
          @media screen and(min-width: $desktop-resolution){
-          font-size: 1.2em;
+          font-size: 1.5em;
         }
-      }
-    }
-
-    .home__gallery{
-      height: 80%;;
-      position: absolute;
-      z-index: -1;
-
-      .home__gallery-image{
-        height: 100%;
-        z-index: -1;
       }
     }
   }

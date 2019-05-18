@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxEditorModule } from 'ngx-editor';
+import { TypingAnimationDirective } from 'angular-typing-animation';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -38,6 +39,7 @@ export function tokenGetter() {
     HomeComponent,
     DashboardComponent,
     NotesComponent,
+    TypingAnimationDirective
   ],
   imports: [
     BrowserModule,
