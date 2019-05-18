@@ -38,7 +38,7 @@ namespace NotesForYou.API.Controllers {
             return Ok (note);
         }
 
-        [HttpGet ("myNote/{id}", Name = "GetNote")]
+        [HttpGet ("mojaNotatka/{id}", Name = "GetNote")]
         public async Task<IActionResult> GetNoteFromUser (int userId, int id) {
             if (userId != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value)) {
                 return Unauthorized ();
@@ -52,7 +52,7 @@ namespace NotesForYou.API.Controllers {
             return Ok (noteToReturn);
         }
 
-        [HttpGet ("myNotes")]
+        [HttpGet ("mojeNotatki")]
         public async Task<IActionResult> GetNotesFromUser (int userId) {
             if (userId != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value)) {
                 return Unauthorized ();
@@ -86,6 +86,36 @@ namespace NotesForYou.API.Controllers {
 
             throw new Exception ("Błąd przy zapisywaniu");
 
+        }
+
+        [HttpPut ("edycja/{id}")]
+        public async Task<IActionResult> UpdateNote (int userId, int id, NoteToUpdateDto noteToUpdate) {
+            if (userId != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value)) {
+                return Unauthorized ();
+            }
+
+            var noteFromRepo = await _noteRepo.GetUserNote (userId, id);
+            _mapper.Map (noteToUpdate, noteFromRepo);
+
+            if (await _noteRepo.SaveAll ()) {
+                return NoContent ();
+            }
+            throw new Exception ($"Notatka {id} nie została poprawnie edytowana!");
+        }
+
+        [HttpDelete("usun/{id}")]
+        public async Task<IActionResult> DeleteNote (int userId, int id) {
+            if (userId != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value)) {
+                return Unauthorized ();
+            }
+
+            var noteFromRepo = await _noteRepo.GetUserNote (userId, id);
+            _noteRepo.Delete (noteFromRepo);
+
+            if (await _noteRepo.SaveAll ()) {
+                return NoContent ();
+            }
+            throw new Exception ($"Notatka {id} nie została usunięta!");
         }
     }
 }
