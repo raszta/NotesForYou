@@ -2,14 +2,14 @@
 @import '../../../scss/variables';
 
 .login{
-  height: 100vh;
+  height: calc(100vh - 11em);
   width: 100vw;
   @include flexDisplay(column, center, center);
   position: relative;
 
   .background{
     background: url(../../../assets/images/img3.jpg) center/cover no-repeat;
-    height: 96%;
+    height: 98%;
     width: 96%;
     position: absolute;
     z-index: -2;
@@ -36,28 +36,6 @@
           color: $font-color-primary;
           font-weight: 500;
           font-size: 550%;
-        }
-      }
-
-      .form__container{
-        @include flexDisplay(column, center, center);
-        margin:1em 0;
-
-        .form__input{
-          height: 2em;
-          width: 100%;
-          font-size: 24px;
-        }
-      }
-
-      .form__container--buttons{
-        @include flexDisplay(row, center, center);
-
-        .form__button{
-          height: 2em;
-          line-height: 1em;
-          width: 7em;
-          margin:1em 0.5em;
         }
       }
     }

@@ -18,9 +18,7 @@
               </div>
             </div>
             <div class="form__container">
-              <input class="form__input"
-
-                type="password" formControlName="password" placeholder="Hasło">
+              <input class="form__input" type="password" formControlName="password" placeholder="Hasło">
               <div class="error"
                 *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
                 Hasło jest wymagane.

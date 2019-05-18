@@ -4,6 +4,7 @@
 .home{
   position: relative;
   height: calc(100vh - 11em);
+  padding-bottom: 4em;
 
   .home__gallery{
       height: 100%;
@@ -48,7 +49,7 @@
         width: 20em;
 
          @media screen and(min-width: $desktop-resolution){
-          font-size: 1.5em;
+          font-size: 2.5em;
         }
       }
     }

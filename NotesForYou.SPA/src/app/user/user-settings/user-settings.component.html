@@ -28,13 +28,11 @@
                 <label for="country">Państwo</label>
                 <input type="text" class="form-control" name="country" [(ngModel)]="user.country">
               </div>
+              <div class="form-group">
+                <h4>Zainteresowania</h4>
+                <textarea name="interests" class="form-control" rows="6" [(ngModel)]="user.interests"></textarea>
+              </div>
             </form>
-          </tab>
-          <tab heading="Zainteresowania">
-            <div class="form-group">
-              <h4>Zainteresowania</h4>
-              <textarea name="interests" class="form-control" rows="6" [(ngModel)]="user.interests"></textarea>
-            </div>
           </tab>
         </tabset>
         <div class="card-footer">
