@@ -1,23 +1,64 @@
 @import '../../../scss/mixin';
 @import '../../../scss/variables';
 
-.login__container{
-  @include flexDisplay(row, center, center);
-  width:100%;
+.login{
+  height: 100vh;
+  width: 100vw;
+  @include flexDisplay(column, center, center);
+  position: relative;
 
-  .login__form{
-  margin-top: 2em;
-  width: 60%;
+  .background{
+    background: url(../../../assets/images/img3.jpg) center/cover no-repeat;
+    height: 96%;
+    width: 96%;
+    position: absolute;
+    z-index: -2;
+    filter: opacity(0.5);
+  }
+  .login__container{
+    position: absolute;
+    z-index: 5;
+    bottom:-350px;
+    @include flexDisplay(row, center, center);
+    width:100%;
 
-    .login__welcome{
-      border-bottom: 2px solid black;
-      margin-bottom: 2em;
-      text-align: center;
+    .login__form{
+      height: 50vh;
+      width: 40%;
 
-      .login__welcome-title{
-        color: $font-color-primary;
-        font-weight: 500;
-        font-size: 350%;
+      .login__welcome{
+        border-bottom: 2px solid black;
+        margin-bottom: 2em;
+        text-align: center;
+
+        .login__welcome-title{
+          font-family: 'Pacifico', cursive;
+          color: $font-color-primary;
+          font-weight: 500;
+          font-size: 550%;
+        }
+      }
+
+      .form__container{
+        @include flexDisplay(column, center, center);
+        margin:1em 0;
+
+        .form__input{
+          height: 2em;
+          width: 100%;
+          font-size: 24px;
+        }
+      }
+
+      .form__container--buttons{
+        @include flexDisplay(row, center, center);
+
+        .form__button{
+          height: 2em;
+          line-height: 1em;
+          width: 7em;
+          margin:1em 0.5em;
+        }
       }
     }
   }

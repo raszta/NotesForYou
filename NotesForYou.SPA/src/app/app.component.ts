@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthService } from './services/auth.service';
 import { IUser } from './models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,10 @@ import { IUser } from './models/user';
 export class AppComponent implements OnInit{
   jwtHelper = new JwtHelperService();
 
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    public router: Router
+    ) {
 
   }
 
