@@ -22,13 +22,13 @@ import { UserModule } from './user/user.module';
 import { environment } from '../environments/environment.prod';
 import { NotesService } from './services/notes.service';
 import { UserService } from './services/user.service';
-import { NotesComponent } from './notes/notes.component';
 import { ErrorInterceptorProvider } from './services/error.interceptor';
 import { AlertifyService } from './services/alertify.service';
 import { AuthService } from './services/auth.service';
 import { PreventUnsavedChanges } from './guards/prevent-unsaved-changes.guard';
 import { MemberEditResolver } from './resolvers/member-edit.resolver';
 import { NotesListResolver } from './resolvers/notes-list.resolver';
+import { AddNoteComponent } from './add-note/add-note.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -38,8 +38,8 @@ export function tokenGetter() {
     AppComponent,
     HomeComponent,
     DashboardComponent,
-    NotesComponent,
-    TypingAnimationDirective
+    TypingAnimationDirective,
+    AddNoteComponent
   ],
   imports: [
     BrowserModule,

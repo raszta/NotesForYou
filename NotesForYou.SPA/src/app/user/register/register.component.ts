@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
         },
         () => {
           this.authService.login(this.user).subscribe(() => {
-            this.router.navigate(['/notatki']);
+            this.router.navigate(['/dodajNotatke']);
           });
         }
       );
@@ -64,6 +64,6 @@ export class RegisterComponent implements OnInit {
 
   cancel() {
     this.router.navigateByUrl('/stronaGlowna');
-    this.alertifyService.message('Anulowano');
+    this.alertifyService.warning('Powrót do strony głównej');
   }
 }

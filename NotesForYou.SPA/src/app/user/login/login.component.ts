@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       this.alertify.error('Wystąpił błąd logowania');
     },
       () => {
-        this.router.navigate(['notatki']);
+        this.router.navigate(['dodajNotatke']);
       }
     );
   }

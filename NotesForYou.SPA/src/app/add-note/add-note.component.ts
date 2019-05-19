@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { INote } from '../models/note';
-import { NotesService } from '../services/notes.service';
 import { AuthService } from '../services/auth.service';
 import { AlertifyService } from '../services/alertify.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NotesService } from '../services/notes.service';
 
 @Component({
   selector: 'app-notes',
-  templateUrl: './notes.component.html',
-  styleUrls: ['./notes.component.scss']
+  templateUrl: './add-note.component.html',
+  styleUrls: ['./add-note.component.scss']
 })
-export class NotesComponent implements OnInit {
+export class AddNoteComponent implements OnInit {
   noteForm: FormGroup;
   note: INote;
 

@@ -5,7 +5,6 @@ import { UserSettingsComponent } from './user/user-settings/user-settings.compon
 import { RegisterComponent } from './user/register/register.component';
 import { LoginComponent } from './user/login/login.component';
 import { NotFoundSiteComponent } from './shared/not-found-site/not-found-site.component';
-import { NotesComponent } from './notes/notes.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AboutAppComponent } from './shared/about-app/about-app.component';
 import { HowUseComponent } from './shared/how-use/how-use.component';
@@ -14,6 +13,7 @@ import { MemberEditResolver } from './resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './guards/prevent-unsaved-changes.guard';
 import { UserNotesListComponent } from './user/user-notes-list/user-notes-list.component';
 import { NotesListResolver } from './resolvers/notes-list.resolver';
+import { AddNoteComponent } from './add-note/add-note.component';
 
 export const appRoutes: Routes = [
   {
@@ -47,7 +47,7 @@ export const appRoutes: Routes = [
     path: 'notatkaPrzyklad', component: HowWorksNoteComponent
   },
   {
-    path: 'dodajNotatke', component: NotesComponent, canActivate: [AuthGuard]
+    path: 'dodajNotatke', component: AddNoteComponent, canActivate: [AuthGuard]
   },
   {
     path: '404', component: NotFoundSiteComponent
