@@ -31,4 +31,8 @@ export class NotesService {
   deleteNote(id: number) {
     return this.httpClient.delete(this.baseUrl + 'notes/' + this.authService.decodedToken.nameid + '/usun/' + id);
   }
+
+  updateNote(note: INote) {
+    return this.httpClient.put(this.baseUrl + 'notes/' + this.authService.decodedToken.nameid + '/edycja/' + note.id, note);
+  }
 }

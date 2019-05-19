@@ -21,7 +21,7 @@
               </label>
             </div>
             <div class="form__container--buttons">
-                <button class="button form__button">Zapisz notatkę</button>
+                <button class="button form__button" [disabled]="!noteForm.dirty">Zapisz notatkę</button>
             </div>
           </form>
       </div>

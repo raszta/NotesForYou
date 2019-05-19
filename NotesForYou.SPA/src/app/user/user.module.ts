@@ -8,6 +8,9 @@ import { BsDropdownModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap'
 import { MemberEditResolver } from '../resolvers/member-edit.resolver';
 import { UserNotesListComponent } from './user-notes-list/user-notes-list.component';
 import { NoteDetailsComponent } from '../notes/note-details/note-details.component';
+import { EditNoteComponent } from '../notes/edit-note/edit-note.component';
+import { RouterModule } from '@angular/router';
+import { NgxEditorModule } from 'ngx-editor';
 
 
 @NgModule({
@@ -16,21 +19,25 @@ import { NoteDetailsComponent } from '../notes/note-details/note-details.compone
     RegisterComponent,
     UserSettingsComponent,
     UserNotesListComponent,
-    NoteDetailsComponent
+    NoteDetailsComponent,
+    EditNoteComponent,
   ],
   imports: [
+    RouterModule,
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     TabsModule.forRoot(),
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    NgxEditorModule
   ],
   exports: [
     LoginComponent,
     RegisterComponent,
     UserSettingsComponent,
     ReactiveFormsModule,
+    NgxEditorModule
   ],
   providers: [
     MemberEditResolver

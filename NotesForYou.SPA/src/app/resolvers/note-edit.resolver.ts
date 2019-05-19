@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { AlertifyService } from '../services/alertify.service';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { INote } from '../models/note';
 import { NotesService } from '../services/notes.service';
 
 @Injectable()
-export class MemberDetailsResolver implements Resolve<INote> {
+export class NoteEditResolver implements Resolve<INote> {
 
   constructor(
     private noteService: NotesService,

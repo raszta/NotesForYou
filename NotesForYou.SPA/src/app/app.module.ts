@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { JwtModule } from '@auth0/angular-jwt';
-import { NgxEditorModule } from 'ngx-editor';
 import { TypingAnimationDirective } from 'angular-typing-animation';
 
 import { AppComponent } from './app.component';
@@ -29,6 +28,7 @@ import { PreventUnsavedChanges } from './guards/prevent-unsaved-changes.guard';
 import { MemberEditResolver } from './resolvers/member-edit.resolver';
 import { NotesListResolver } from './resolvers/notes-list.resolver';
 import { AddNoteComponent } from './notes/add-note/add-note.component';
+import { NoteEditResolver } from './resolvers/note-edit.resolver';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -62,7 +62,6 @@ export function tokenGetter() {
         whitelistedDomains: ['localhost:5001']
       }
     }),
-    NgxEditorModule
   ],
   providers: [
     AuthGuard,
@@ -74,7 +73,8 @@ export function tokenGetter() {
     ErrorInterceptorProvider,
     PreventUnsavedChanges,
     MemberEditResolver,
-    NotesListResolver
+    NotesListResolver,
+    NoteEditResolver
     ],
   bootstrap: [AppComponent]
 })

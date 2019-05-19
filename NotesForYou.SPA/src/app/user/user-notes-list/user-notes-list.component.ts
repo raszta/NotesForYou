@@ -21,8 +21,7 @@ export class UserNotesListComponent implements OnInit {
   }
 
   filterNotes(id: number) {
-    console.log(id);
-    this.notes.splice(this.notes.findIndex(n => n.id == id), 1);
+    this.notes.splice(this.notes.findIndex(n => n.id === id), 1);
   }
 
 }

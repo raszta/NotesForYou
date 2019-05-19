@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { INote } from '../../models/note';
 import { NotesService } from '../../services/notes.service';
 import { AlertifyService } from '../../services/alertify.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-note-details',
@@ -13,7 +14,8 @@ export class NoteDetailsComponent implements OnInit {
   @Output() deletedNote = new EventEmitter<number>();
   constructor(
     private noteService: NotesService,
-    private alertify: AlertifyService
+    private alertify: AlertifyService,
+    private router: Router
   ) { }
 
   ngOnInit() {

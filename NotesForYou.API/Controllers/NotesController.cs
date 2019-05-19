@@ -31,7 +31,7 @@ namespace NotesForYou.API.Controllers {
             return Ok (notes);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet ("{id}")]
         public async Task<IActionResult> GetNote (int id) {
             var note = await _repo.Get (id);
 
@@ -66,7 +66,7 @@ namespace NotesForYou.API.Controllers {
             return Ok (notesToReturn);
         }
 
-        [HttpPost("dodaj/{userId}")]
+        [HttpPost ("dodaj/{userId}")]
         public async Task<IActionResult> CreateNote (int userId, NoteForCreationDto noteForCreationDto) {
             if (userId != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value)) {
                 return Unauthorized ();
@@ -100,6 +100,7 @@ namespace NotesForYou.API.Controllers {
             }
 
             _mapper.Map (noteToUpdate, noteFromRepo);
+            _noteRepo.Update (noteFromRepo);
 
             if (await _noteRepo.SaveAll ()) {
                 return NoContent ();

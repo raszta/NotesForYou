@@ -14,6 +14,8 @@ import { PreventUnsavedChanges } from './guards/prevent-unsaved-changes.guard';
 import { UserNotesListComponent } from './user/user-notes-list/user-notes-list.component';
 import { NotesListResolver } from './resolvers/notes-list.resolver';
 import { AddNoteComponent } from './notes/add-note/add-note.component';
+import { EditNoteComponent } from './notes/edit-note/edit-note.component';
+import { NoteEditResolver } from './resolvers/note-edit.resolver';
 
 export const appRoutes: Routes = [
   {
@@ -30,6 +32,10 @@ export const appRoutes: Routes = [
   {
     runGuardsAndResolvers: 'always',
     path: 'twojeNotatki', component: UserNotesListComponent, resolve: { user: NotesListResolver },
+  },
+  {
+    runGuardsAndResolvers: 'always',
+    path: 'twojaNotatka/:id', component: EditNoteComponent, resolve: { user: NoteEditResolver },
   },
   {
     path: 'rejestracja', component: RegisterComponent

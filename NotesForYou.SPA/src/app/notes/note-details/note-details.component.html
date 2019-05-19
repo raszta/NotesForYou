@@ -10,7 +10,7 @@
     </span>
   </p>
   <div class="form__container--buttons">
-    <button class="button form__button" (click)="updateNote(note.id)">Edytuj notatkę</button>
+    <button class="button form__button" [routerLink]="['/twojaNotatka/',note.id]">Edytuj notatkę</button>
     <button class="button form__button" (click)="deleteNote(note.id)">Usuń notatkę</button>
   </div>
 </div>
