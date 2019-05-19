@@ -3,6 +3,7 @@ import { INote } from '../models/note';
 import { NotesService } from '../services/notes.service';
 import { AuthService } from '../services/auth.service';
 import { AlertifyService } from '../services/alertify.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-notes',
@@ -10,7 +11,8 @@ import { AlertifyService } from '../services/alertify.service';
   styleUrls: ['./notes.component.scss']
 })
 export class NotesComponent implements OnInit {
-  note: any = {};
+  noteForm: FormGroup;
+  note: INote;
 
   editorConfig = {
   'editable': true,
@@ -35,20 +37,29 @@ export class NotesComponent implements OnInit {
   constructor(
     private noteService: NotesService,
     private authService: AuthService,
-    private alertify: AlertifyService
+    private alertify: AlertifyService,
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit() {
+    this.createNoteForm();
+  }
+
+  createNoteForm() {
+    this.noteForm = this.fb.group({
+      goldenThought: ['false'],
+      content: ['', Validators.required]
+    });
   }
 
   saveNote() {
-    console.log(this.note.content);
+    this.note = Object.assign({}, this.noteForm.value);
 
-    this.noteService.addNote(this.authService.decodedToken.nameid, this.note).subscribe( next => {
+    this.noteService.addNote(this.note).subscribe( next => {
       this.alertify.success('Dodano notatkę');
     },
     error => {
-      this.alertify.error(error);
+      this.alertify.error('Błąd podczas dodawania notatki!');
     });
   }
 

@@ -66,7 +66,7 @@ namespace NotesForYou.API.Controllers {
             return Ok (notesToReturn);
         }
 
-        [HttpPost]
+        [HttpPost("dodaj/{userId}")]
         public async Task<IActionResult> CreateNote (int userId, NoteForCreationDto noteForCreationDto) {
             if (userId != int.Parse (User.FindFirst (ClaimTypes.NameIdentifier).Value)) {
                 return Unauthorized ();
@@ -85,7 +85,6 @@ namespace NotesForYou.API.Controllers {
             }
 
             throw new Exception ("Błąd przy zapisywaniu");
-
         }
 
         [HttpPut ("{userId}/edycja/{id}")]

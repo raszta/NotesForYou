@@ -16,8 +16,12 @@ export class NotesService {
     private authService: AuthService,
   ) { }
 
-  addNote(userId: number, note: INote) {
-    return this.httpClient.post(this.baseUrl + 'notes/' + userId, note);
+  addNote(note: INote) {
+    return this.httpClient.post(this.baseUrl + 'notes/dodaj/' + this.authService.decodedToken.nameid, note);
+  }
+
+  getNote(id: number) {
+    return this.httpClient.get<INote>(this.baseUrl + 'notes/' + this.authService.decodedToken.nameid + '/mojaNotatka' + id );
   }
 
   getNotes(): Observable<INote> {

@@ -47,7 +47,7 @@ export const appRoutes: Routes = [
     path: 'notatkaPrzyklad', component: HowWorksNoteComponent
   },
   {
-    path: 'notatki', component: NotesComponent, canActivate: [AuthGuard]
+    path: 'dodajNotatke', component: NotesComponent, canActivate: [AuthGuard]
   },
   {
     path: '404', component: NotFoundSiteComponent

@@ -27,7 +27,8 @@ import { UserNotesListComponent } from './user-notes-list/user-notes-list.compon
   exports: [
     LoginComponent,
     RegisterComponent,
-    UserSettingsComponent
+    UserSettingsComponent,
+    ReactiveFormsModule,
   ],
   providers: [
     MemberEditResolver
