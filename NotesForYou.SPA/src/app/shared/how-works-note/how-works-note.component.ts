@@ -11,6 +11,7 @@ import { environment } from '../../../environments/environment';
 export class HowWorksNoteComponent implements OnInit {
   noteForm: FormGroup;
   note: INote;
+  notes: INote[] = [];
   editorConfig = environment.editorConfig;
 
   constructor(
@@ -26,6 +27,13 @@ export class HowWorksNoteComponent implements OnInit {
       goldenThought: ['false'],
       content: ['', Validators.required]
     });
+  }
+
+  createNote() {
+    this.note = Object.assign({}, this.noteForm.value);
+    this.note.dateCreated = new Date();
+
+    this.notes.push(this.note);
   }
 
 }

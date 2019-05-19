@@ -1,0 +1,31 @@
+@import '../../../scss/mixin';
+
+.about{
+  padding-bottom: 5em;
+
+
+  .about__header{
+    margin:2em 0 3em 0;
+    text-align: center;
+  }
+
+  .form__button{
+    width: 12em;
+    outline: none;
+  }
+
+  .note-details{
+    border-radius: 35px;
+    border: 1px solid black;
+    margin: 2em;
+    @include flexDisplay(column,center, center);
+    padding:1em;
+    width: 80%;
+    height: 20em;
+    margin: 0 10%;
+
+    .note-details__text{
+      font-size: 20px;
+    }
+  }
+}

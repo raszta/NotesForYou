@@ -3,9 +3,9 @@
     <div class="row">
       <div class="col-12">
         <header class="about__header">
-          <h1 class="header__title">Wpisz tekst i sprawdź jak wyglada twoja notatka</h1>
+          <h1 class="text__bold text__italic">Wpisz tekst i sprawdź jak wygląda twoja notatka</h1>
         </header>
-          <form [formGroup]="noteForm" (ngSubmit)="noteForm.valid && saveNote()">
+          <form [formGroup]="noteForm" (ngSubmit)="noteForm.valid && createNote()">
             <div class="notes__editor">
               <app-ngx-editor [config]="editorConfig" formControlName="content" name="content" resizer="basic"></app-ngx-editor>
             </div>
@@ -31,7 +31,19 @@
     <div class="row">
       <div class="col-12">
         <div class="about__description">
-          <p class="description__text">...</p>
+          <div class="note-details" *ngIf="note">
+            <h2 class="text__bold text__italic">Tak będzie wyglądać Twoja notatka</h2>
+            <p class="note-details__text"><span class="text__bold">Treść:</span> {{note.content}}</p>
+            <p class="note-details__text"><span class="text__bold">Data utworzenia:</span> {{note.dateCreated | date}}</p>
+            <p class="note-details__text"><span class="text__bold">Czy to złota myśl?</span>
+              <span *ngIf="note.goldenThought == 'false'" class="text__italic">
+                Nie
+              </span>
+              <span *ngIf="note.goldenThought == 'true'" class="text__italic text__bold golden">
+                Tak
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </div>

@@ -23,6 +23,7 @@ import { FeatureModule } from '../feature.module';
     LoginComponent,
     RegisterComponent,
     UserSettingsComponent,
+    NoteDetailsComponent,
   ],
 })
 export class UserModule { }

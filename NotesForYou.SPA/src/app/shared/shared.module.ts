@@ -6,6 +6,7 @@ import { HowUseComponent } from './how-use/how-use.component';
 import { AboutAppComponent } from './about-app/about-app.component';
 import { HowWorksNoteComponent } from './how-works-note/how-works-note.component';
 import { FeatureModule } from '../feature.module';
+import { UserModule } from '../user/user.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FeatureModule } from '../feature.module';
     HowWorksNoteComponent
   ],
   imports: [
-    FeatureModule
+    FeatureModule,
+    UserModule
   ],
   exports: [
     FooterComponent,
