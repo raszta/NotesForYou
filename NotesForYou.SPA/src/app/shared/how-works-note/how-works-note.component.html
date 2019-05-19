@@ -1,3 +1,40 @@
-<p>
-  how-works-note works!
-</p>
+<section class="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <header class="about__header">
+          <h1 class="header__title">Wpisz tekst i sprawdź jak wyglada twoja notatka</h1>
+        </header>
+          <form [formGroup]="noteForm" (ngSubmit)="noteForm.valid && saveNote()">
+            <div class="notes__editor">
+              <app-ngx-editor [config]="editorConfig" formControlName="content" name="content" resizer="basic"></app-ngx-editor>
+            </div>
+            <div class="form__container form__container--row">
+              <label class="form__label">Czy to złota myśl? </label>
+              <label class="form__label">
+                <input type="radio" value="true" formControlName="goldenThought">
+                <span class="checkmark"></span>
+                Tak
+              </label>
+              <label class="form__label">
+                <input type="radio" value="false" formControlName="goldenThought">
+                <span class="checkmark"></span>
+                Nie
+              </label>
+            </div>
+            <div class="form__container--buttons">
+              <button class="button form__button" [disabled]="!noteForm.dirty">Zapisz notatkę</button>
+            </div>
+          </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="about__description">
+          <p class="description__text">...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

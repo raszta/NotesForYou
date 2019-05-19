@@ -1,10 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-import { appRoutes } from './routes';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -29,6 +23,7 @@ import { MemberEditResolver } from './resolvers/member-edit.resolver';
 import { NotesListResolver } from './resolvers/notes-list.resolver';
 import { AddNoteComponent } from './notes/add-note/add-note.component';
 import { NoteEditResolver } from './resolvers/note-edit.resolver';
+import { FeatureModule } from './feature.module';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -42,13 +37,9 @@ export function tokenGetter() {
     AddNoteComponent,
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes),
+    FeatureModule,
     SharedModule,
     UserModule,
-    BrowserAnimationsModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       name: 'AngularClient Devtools',
