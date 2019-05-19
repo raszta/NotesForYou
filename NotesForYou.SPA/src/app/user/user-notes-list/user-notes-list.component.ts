@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AlertifyService } from '../../services/alertify.service';
-import { AuthService } from '../../services/auth.service';
 import { INote } from '../../models/note';
 
 @Component({
@@ -14,16 +12,17 @@ export class UserNotesListComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private alertify: AlertifyService,
-    private authService: AuthService,
   ) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      console.log(data.user);
-
       this.notes = data['user'];
     });
+  }
+
+  filterNotes(id: number) {
+    console.log(id);
+    this.notes.splice(this.notes.findIndex(n => n.id == id), 1);
   }
 
 }

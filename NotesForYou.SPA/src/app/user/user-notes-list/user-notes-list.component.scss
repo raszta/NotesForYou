@@ -1,0 +1,12 @@
+@import '../../../scss/mixin';
+
+.user-notes{
+  padding-bottom: 5em;
+  min-height: 100%;
+
+  .user-notes__container{
+    @include flexDisplay(row, center, center);
+    flex-wrap: wrap;
+  }
+}
+

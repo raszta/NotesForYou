@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { INote } from '../models/note';
-import { AuthService } from '../services/auth.service';
-import { AlertifyService } from '../services/alertify.service';
+import { INote } from '../../models/note';
+import { AuthService } from '../../services/auth.service';
+import { AlertifyService } from '../../services/alertify.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { NotesService } from '../services/notes.service';
+import { NotesService } from '../../services/notes.service';
 
 @Component({
   selector: 'app-notes',
@@ -57,6 +57,7 @@ export class AddNoteComponent implements OnInit {
 
     this.noteService.addNote(this.note).subscribe( next => {
       this.alertify.success('Dodano notatkę');
+      this.noteForm.reset({goldenThought: 'false'});
     },
     error => {
       this.alertify.error('Błąd podczas dodawania notatki!');

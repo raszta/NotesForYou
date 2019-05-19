@@ -21,10 +21,14 @@ export class NotesService {
   }
 
   getNote(id: number) {
-    return this.httpClient.get<INote>(this.baseUrl + 'notes/' + this.authService.decodedToken.nameid + '/mojaNotatka' + id );
+    return this.httpClient.get<INote>(this.baseUrl + 'notes/' + this.authService.decodedToken.nameid + '/mojaNotatka/' + id );
   }
 
   getNotes(): Observable<INote> {
     return this.httpClient.get<INote>(this.baseUrl + 'notes/' + this.authService.decodedToken.nameid + '/mojeNotatki');
+  }
+
+  deleteNote(id: number) {
+    return this.httpClient.delete(this.baseUrl + 'notes/' + this.authService.decodedToken.nameid + '/usun/' + id);
   }
 }

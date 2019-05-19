@@ -28,7 +28,7 @@ import { AuthService } from './services/auth.service';
 import { PreventUnsavedChanges } from './guards/prevent-unsaved-changes.guard';
 import { MemberEditResolver } from './resolvers/member-edit.resolver';
 import { NotesListResolver } from './resolvers/notes-list.resolver';
-import { AddNoteComponent } from './add-note/add-note.component';
+import { AddNoteComponent } from './notes/add-note/add-note.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -39,7 +39,7 @@ export function tokenGetter() {
     HomeComponent,
     DashboardComponent,
     TypingAnimationDirective,
-    AddNoteComponent
+    AddNoteComponent,
   ],
   imports: [
     BrowserModule,

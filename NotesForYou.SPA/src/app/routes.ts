@@ -13,7 +13,7 @@ import { MemberEditResolver } from './resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './guards/prevent-unsaved-changes.guard';
 import { UserNotesListComponent } from './user/user-notes-list/user-notes-list.component';
 import { NotesListResolver } from './resolvers/notes-list.resolver';
-import { AddNoteComponent } from './add-note/add-note.component';
+import { AddNoteComponent } from './notes/add-note/add-note.component';
 
 export const appRoutes: Routes = [
   {

@@ -7,6 +7,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BsDropdownModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap';
 import { MemberEditResolver } from '../resolvers/member-edit.resolver';
 import { UserNotesListComponent } from './user-notes-list/user-notes-list.component';
+import { NoteDetailsComponent } from '../notes/note-details/note-details.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { UserNotesListComponent } from './user-notes-list/user-notes-list.compon
     LoginComponent,
     RegisterComponent,
     UserSettingsComponent,
-    UserNotesListComponent
+    UserNotesListComponent,
+    NoteDetailsComponent
   ],
   imports: [
     CommonModule,

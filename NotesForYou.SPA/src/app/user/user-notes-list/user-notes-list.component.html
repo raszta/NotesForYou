@@ -1,6 +1,13 @@
-<div *ngFor="let note of notes" class="col-lg-2 col-md-3 col-sm-6">
-  <p>{{note.content}}</p>
-  <p>{{note.dateCreated | date}}</p>
-  <p *ngIf="note.goldenThought == false">Nie</p>
-  <p *ngIf="note.goldenThought == true">Tak</p>
-</div>
+<section class="user-notes">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="user-notes__container">
+          <span *ngFor="let note of notes" class="user-note">
+            <app-note-details [note]="note" (deletedNote)=(filterNotes($event))></app-note-details>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

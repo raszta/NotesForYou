@@ -1,0 +1,16 @@
+<div class="note-details">
+  <p class="note-details__text"><span class="text__bold">Treść:</span> {{note.content}}</p>
+  <p class="note-details__text"><span class="text__bold">Data utworzenia:</span> {{note.dateCreated | date}}</p>
+  <p class="note-details__text"><span class="text__bold">Czy to złota myśl?</span>
+    <span  *ngIf="note.goldenThought == false" class="text__italic">
+      Nie
+    </span>
+    <span  *ngIf="note.goldenThought == true" class="text__italic text__bold golden">
+      Tak
+    </span>
+  </p>
+  <div class="form__container--buttons">
+    <button class="button form__button" (click)="updateNote(note.id)">Edytuj notatkę</button>
+    <button class="button form__button" (click)="deleteNote(note.id)">Usuń notatkę</button>
+  </div>
+</div>

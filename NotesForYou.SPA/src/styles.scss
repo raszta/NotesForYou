@@ -13,12 +13,12 @@
 }
 
 html{
-  height: 100%;
+  min-height: 100%;
+  position:relative;
 }
 
 body{
   background: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)), url(./assets/images/bodyBcg.jpeg) center/cover no-repeat;
   min-height: 100%;
-  position:relative;
   margin:0;
 }
