@@ -7,6 +7,13 @@
   .user-notes__container{
     @include flexDisplay(row, center, center);
     flex-wrap: wrap;
+
+    .empty__image{
+      text-align: center;
+      margin: 2em;
+      height: 20em;
+      width: 20em;
+    }
   }
 }
 

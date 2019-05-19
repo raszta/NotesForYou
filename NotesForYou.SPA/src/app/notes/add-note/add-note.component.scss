@@ -2,6 +2,10 @@
 
   .notes__container{
     margin-top: 3em;
+
+    .notes__editor{
+      border:2px solid rgb(78, 72, 72);
+    }
   }
 
   .form__button{

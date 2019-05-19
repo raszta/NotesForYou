@@ -56,7 +56,7 @@ export class AddNoteComponent implements OnInit {
     this.note = Object.assign({}, this.noteForm.value);
 
     this.noteService.addNote(this.note).subscribe( next => {
-      this.alertify.success('Dodano notatkę');
+      this.alertify.success('Dodano notatkę!');
       this.noteForm.reset({goldenThought: 'false'});
     },
     error => {

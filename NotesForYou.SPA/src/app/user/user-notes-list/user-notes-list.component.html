@@ -3,9 +3,13 @@
     <div class="row">
       <div class="col-12">
         <div class="user-notes__container">
-          <span *ngFor="let note of notes" class="user-note">
+          <div *ngIf="notes?.length < 1" class="user-notes__empty">
+            <h2  class="text__bold">Jeszcze nie masz żadnych notatek.</h2>
+            <img src="../../../assets/images/olowek.gif" alt="Tanczacy olowek" class="empty__image">
+          </div>
+          <div *ngFor="let note of notes">
             <app-note-details [note]="note" (deletedNote)=(filterNotes($event))></app-note-details>
-          </span>
+          </div>
         </div>
       </div>
     </div>
