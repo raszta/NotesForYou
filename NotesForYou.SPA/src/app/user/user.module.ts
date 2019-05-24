@@ -5,7 +5,7 @@ import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { UserNotesListComponent } from './user-notes-list/user-notes-list.component';
 import { NoteDetailsComponent } from '../notes/note-details/note-details.component';
 import { EditNoteComponent } from '../notes/edit-note/edit-note.component';
-import { FeatureModule } from '../feature.module';
+import { FeatureModule } from '../shared/feature.module';
 
 @NgModule({
   declarations: [

@@ -23,7 +23,7 @@ import { MemberEditResolver } from './resolvers/member-edit.resolver';
 import { NotesListResolver } from './resolvers/notes-list.resolver';
 import { AddNoteComponent } from './notes/add-note/add-note.component';
 import { NoteEditResolver } from './resolvers/note-edit.resolver';
-import { FeatureModule } from './feature.module';
+import { FeatureModule } from './shared/feature.module';
 import { GoldenThoughtComponent } from './golden-thought/golden-thought.component';
 
 export function tokenGetter() {

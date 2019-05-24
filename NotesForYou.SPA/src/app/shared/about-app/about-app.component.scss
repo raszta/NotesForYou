@@ -4,27 +4,27 @@
 
 .about{
   margin: 4em 0;
+  font-family: 'Permanent Marker', cursive;
 
   .about__header{
     text-align: center;
-    font-family: 'Permanent Marker', cursive;
 
     .header__title{
       font-size: 3em;
       text-transform: uppercase;
       color: $font-color-primary;
     }
-
-    .header__text{
-      font-size: 90%;
-    }
   }
 
   .about__description{
     text-align: center;
 
+    .description__title{
+      margin: 2em auto;
+    }
+
     .description__text{
-      font-size: 90%;
+      font-size: 1.5em;
     }
   }
 }

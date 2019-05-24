@@ -8,7 +8,7 @@
 }
 
 .note-details--golden{
-  background: lighten(gold, 50%);
+  background: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)), url(../../../assets/images/gold.gif) center/cover no-repeat;
   border: 2px solid gold;
   @include noteDetail;
 }
@@ -22,8 +22,4 @@
 .note-details__golden{
   margin: 0 auto;
   color: gold;
-
-  .note-details__golden-title{
-
-  }
 }
