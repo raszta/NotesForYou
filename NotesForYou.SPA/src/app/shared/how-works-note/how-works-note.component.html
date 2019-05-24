@@ -23,7 +23,7 @@
               </label>
             </div>
             <div class="form__container--buttons">
-              <button class="button form__button" [disabled]="!noteForm.dirty">Zapisz notatkę</button>
+              <button class="button form__button" [disabled]="!noteForm.dirty">Pokaż notatkę</button>
             </div>
           </form>
       </div>
@@ -33,7 +33,7 @@
         <div class="about__description">
           <div class="note-details" *ngIf="note">
             <h2 class="text__bold text__italic">Tak będzie wyglądać Twoja notatka</h2>
-            <p class="note-details__text"><span class="text__bold">Treść:</span> {{note.content}}</p>
+            <p class="note-details__text" [innerHTML]="note.content"><span class="text__bold">Treść:</span> </p>
             <p class="note-details__text"><span class="text__bold">Data utworzenia:</span> {{note.dateCreated | date}}</p>
             <p class="note-details__text"><span class="text__bold">Czy to złota myśl?</span>
               <span *ngIf="note.goldenThought == 'false'" class="text__italic">

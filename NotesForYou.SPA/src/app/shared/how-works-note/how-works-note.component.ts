@@ -32,7 +32,6 @@ export class HowWorksNoteComponent implements OnInit {
   createNote() {
     this.note = Object.assign({}, this.noteForm.value);
     this.note.dateCreated = new Date();
-
     this.notes.push(this.note);
   }
 

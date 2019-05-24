@@ -29,7 +29,6 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [
@@ -82,7 +81,6 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],

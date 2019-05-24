@@ -6,14 +6,6 @@ small, strike, strong, sub, sup, tt, var,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	font-weight: inherit;
-	font-style: inherit;
-	font-size: 100%;
-	font-family: inherit;
 	vertical-align: baseline;
 }
 /* remember to define focus styles! */
@@ -22,8 +14,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 body {
 	line-height: 1;
-	color: black;
-	background: white;
 }
 ol, ul {
 	list-style: none;

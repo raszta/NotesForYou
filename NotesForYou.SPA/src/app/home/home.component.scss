@@ -3,12 +3,11 @@
 
 .home{
   position: relative;
-  height: calc(100vh - 11em);
-  padding-bottom: 4em;
+  height: calc(100vh - 12em);
 
   .home__gallery{
       height: 100%;
-      width: 100vw;
+      width: 100%;
       position: absolute;
       z-index: -1;
 

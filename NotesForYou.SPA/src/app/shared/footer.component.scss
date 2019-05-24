@@ -29,6 +29,7 @@
       @include flexDisplay(row, space-between, center);
 
       .list__item{
+        font-size: 1.3em;
         margin-right: 1em;
         border: 1px solid $font-color-primary;
         padding: 0.5em;

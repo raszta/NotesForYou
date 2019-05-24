@@ -9,8 +9,8 @@
   border-radius: 35px;
   margin: 2em;
   @include flexDisplay(column,center, flex-start);
-  padding:1em;
+  padding:3em;
   min-width: 20em;
-  max-width: 20em;
+  max-width: 50em;
   min-height: 20em;
 }

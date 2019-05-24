@@ -3,7 +3,9 @@
   <div class="note-details__golden" *ngIf="note.goldenThought == true">
     <h3 class="note-details__golden-title">Złota myśl</h3>
   </div>
-  <p class="note-details__text"><span class="text__bold">Treść:</span> {{note.content}}</p>
+  <p class="text__bold text__italic content">Treść:
+  </p>
+  <p class="note-details__text" [innerHTML]="note.content"></p>
   <p class="note-details__text"><span class="text__bold">Data:</span> {{note.dateCreated | date}}</p>
   <p class="note-details__text" *ngIf="router.url != '/zloteMysli'"><span class="text__bold">Czy to złota myśl?</span>
     <span  *ngIf="note.goldenThought == false" class="text__italic">
