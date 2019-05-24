@@ -1,7 +1,16 @@
-<div class="container">
+<!-- <div class="container">
   <div class="goldenThoughts">
     <div *ngFor="let gold of goldenThoughts">
       <app-note-details [note]="gold"></app-note-details>
     </div>
+  </div>
+</div> -->
+<div class="container">
+  <div class="goldenThoughts">
+    <carousel class="carousel">
+      <slide *ngFor="let gold of goldenThoughts">
+        <app-note-details [note]="gold"></app-note-details>
+      </slide>
+    </carousel>
   </div>
 </div>

@@ -15,6 +15,7 @@ import { INote } from '../../models/note';
 export class EditNoteComponent implements OnInit {
   editForm: FormGroup;
   note: INote;
+  stringValue = '';
   editorConfig = environment.editorConfig;
 
   constructor(
@@ -28,6 +29,7 @@ export class EditNoteComponent implements OnInit {
     this.route.data.subscribe(data => {
       console.log(data);
       this.note = data['user'];
+      this.stringValue = this.note.goldenThought === true ? 'true' : 'false';
     });
     this.createNoteForm();
   }
@@ -35,7 +37,7 @@ export class EditNoteComponent implements OnInit {
   createNoteForm() {
     this.editForm = this.fb.group({
       id: this.note.id,
-      goldenThought: ['this.note.goldenThought'],
+      goldenThought: this.stringValue,
       content: this.note.content
     });
   }

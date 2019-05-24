@@ -117,4 +117,24 @@ input{
   color: gold;
 }
 
+.carousel-indicators{
+
+    .active{
+    background-color: black;
+    border: 2px solid black;
+
+  }
+}
+
+.carousel-indicators li{
+  background-color: black !important;
+  border: 2px solid black !important;
+
+}
+
+:disabled{
+  background: darken(white, 10%);
+}
+
+
 

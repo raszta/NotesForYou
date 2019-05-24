@@ -36,7 +36,8 @@ export class LoginComponent implements OnInit {
       this.alertify.success('Zalogowałeś się prawidłowo!');
     },
     error => {
-      this.alertify.error('Wystąpił błąd logowania');
+      this.alertify.error('Błędne hasło lub użytkownik!');
+      this.loginForm.reset();
     },
       () => {
         this.router.navigate(['dodajNotatke']);

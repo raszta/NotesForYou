@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { NgxEditorModule } from 'ngx-editor';
 import { BsDropdownModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { BsDropdownModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap'
     TabsModule.forRoot(),
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    CarouselModule.forRoot(),
   ],
   exports: [
     BrowserModule,
@@ -38,6 +40,7 @@ import { BsDropdownModule, TabsModule, BsDatepickerModule } from 'ngx-bootstrap'
     TabsModule,
     BsDropdownModule,
     BsDatepickerModule,
+    CarouselModule
   ]
 })
 export class FeatureModule { }

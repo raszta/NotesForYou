@@ -1,5 +1,21 @@
 .goldenThoughts{
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   padding-bottom: 5em;
+
+  .carousel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .carousel-item{
+      height: 58em;
+      width: 60em;
+    }
+
+    .item{
+      left: 30%;
+    }
+  }
 }
