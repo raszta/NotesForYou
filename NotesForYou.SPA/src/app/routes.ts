@@ -16,26 +16,27 @@ import { NotesListResolver } from './resolvers/notes-list.resolver';
 import { AddNoteComponent } from './notes/add-note/add-note.component';
 import { EditNoteComponent } from './notes/edit-note/edit-note.component';
 import { NoteEditResolver } from './resolvers/note-edit.resolver';
+import { GoldenThoughtComponent } from './golden-thought/golden-thought.component';
 
 export const appRoutes: Routes = [
   {
     path: 'stronaGlowna', component: HomeComponent
   },
   {
-    path: 'admin', component: DashboardComponent
+    path: 'admin', component: DashboardComponent, canActivate: [AuthGuard]
   },
   {
     runGuardsAndResolvers: 'always',
     path: 'ustawienia', component: UserSettingsComponent, resolve: { user: MemberEditResolver },
-    canDeactivate: [PreventUnsavedChanges]
+    canDeactivate: [PreventUnsavedChanges], canActivate: [AuthGuard]
   },
   {
     runGuardsAndResolvers: 'always',
-    path: 'twojeNotatki', component: UserNotesListComponent, resolve: { user: NotesListResolver },
+    path: 'twojeNotatki', component: UserNotesListComponent, resolve: { user: NotesListResolver }, canActivate: [AuthGuard]
   },
   {
     runGuardsAndResolvers: 'always',
-    path: 'twojaNotatka/:id', component: EditNoteComponent, resolve: { user: NoteEditResolver },
+    path: 'twojaNotatka/:id', component: EditNoteComponent, resolve: { user: NoteEditResolver }, canActivate: [AuthGuard]
   },
   {
     path: 'rejestracja', component: RegisterComponent
@@ -54,6 +55,9 @@ export const appRoutes: Routes = [
   },
   {
     path: 'dodajNotatke', component: AddNoteComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'zloteMysli', component: GoldenThoughtComponent
   },
   {
     path: '404', component: NotFoundSiteComponent

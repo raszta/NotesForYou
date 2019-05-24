@@ -6,10 +6,12 @@
       </div>
       <ul class="menu__links" *ngIf="!authService.loggedIn()">
         <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/notatkaPrzyklad']">Wypróbuj notatkę</a></li>
+        <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/zloteMysli']">Złote myśli</a></li>
         <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/logowanie']">Zaloguj się</a></li>
         <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/rejestracja']">Stwórz konto</a></li>
       </ul>
       <ul class="menu__links" *ngIf="authService.loggedIn()">
+        <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/zloteMysli']">Złote myśli</a></li>
         <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/dodajNotatke']">Dodaj notatkę</a></li>
         <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/twojeNotatki']">Twoje notatki</a></li>
         <li class="menu__links-item"><a class="menu__links-item-link" [routerLink]="['/ustawienia']">Twój profil</a></li>

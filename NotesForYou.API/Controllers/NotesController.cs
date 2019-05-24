@@ -25,6 +25,7 @@ namespace NotesForYou.API.Controllers {
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetNotes () {
             var notes = await _repo.GetAll ();
 

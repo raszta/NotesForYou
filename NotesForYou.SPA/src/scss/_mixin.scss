@@ -4,3 +4,13 @@
   justify-content: $horizontalAlignment;
   align-items: $verticalAlignment;
 }
+
+@mixin noteDetail() {
+  border-radius: 35px;
+  margin: 2em;
+  @include flexDisplay(column,center, flex-start);
+  padding:1em;
+  min-width: 20em;
+  max-width: 20em;
+  min-height: 20em;
+}

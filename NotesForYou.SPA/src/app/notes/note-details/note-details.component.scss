@@ -1,17 +1,29 @@
 @import '../../../scss/mixin';
 
 .note-details{
-  border-radius: 35px;
   border: 1px solid black;
-  margin: 2em;
-  @include flexDisplay(column,center, flex-start);
-  padding:1em;
-  width: 20em;
-  height: 20em;
+  @include noteDetail;
+  background: darken(white, 5%);
 
-  .form__button{
-    width: 8em;
-    font-size: 90%;
-    outline: none;
+}
+
+.note-details--golden{
+  background: lighten(gold, 50%);
+  border: 2px solid gold;
+  @include noteDetail;
+}
+
+.form__button{
+  width: 8em;
+  font-size: 90%;
+  outline: none;
+}
+
+.note-details__golden{
+  margin: 1em auto;
+  color: gold;
+
+  .note-details__golden-title{
+
   }
 }

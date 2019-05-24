@@ -24,35 +24,37 @@ import { NotesListResolver } from './resolvers/notes-list.resolver';
 import { AddNoteComponent } from './notes/add-note/add-note.component';
 import { NoteEditResolver } from './resolvers/note-edit.resolver';
 import { FeatureModule } from './feature.module';
+import { GoldenThoughtComponent } from './golden-thought/golden-thought.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    DashboardComponent,
-    TypingAnimationDirective,
-    AddNoteComponent,
-  ],
-  imports: [
-    FeatureModule,
-    SharedModule,
-    UserModule,
-    StoreModule.forRoot({}),
-    StoreDevtoolsModule.instrument({
-      name: 'AngularClient Devtools',
-      maxAge: 25,
-      logOnly: environment.production
-    }),
-    JwtModule.forRoot({
-      config: {
-        tokenGetter,
-        blacklistedRoutes: ['localhost:5001/api/auth'],
-        whitelistedDomains: ['localhost:5001']
-      }
-    }),
+   declarations: [
+      AppComponent,
+      HomeComponent,
+      DashboardComponent,
+      TypingAnimationDirective,
+      AddNoteComponent,
+      GoldenThoughtComponent
+   ],
+   imports: [
+     FeatureModule,
+     SharedModule,
+     UserModule,
+     StoreModule.forRoot({}),
+     StoreDevtoolsModule.instrument({
+       name: 'AngularClient Devtools',
+       maxAge: 25,
+       logOnly: environment.production
+     }),
+     JwtModule.forRoot({
+       config: {
+         tokenGetter,
+         blacklistedRoutes: ['localhost:5001/api/auth'],
+         whitelistedDomains: ['localhost:5001']
+       }
+     }),
   ],
   providers: [
     AuthGuard,

@@ -16,6 +16,10 @@ export class NotesService {
     private authService: AuthService,
   ) { }
 
+  getAllNotes() {
+    return this.httpClient.get(this.baseUrl + 'notes');
+  }
+
   addNote(note: INote) {
     return this.httpClient.post(this.baseUrl + 'notes/dodaj/' + this.authService.decodedToken.nameid, note);
   }

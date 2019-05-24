@@ -1,7 +1,11 @@
-<div class="note-details">
+<div [ngClass]="{'note-details' : note.goldenThought === false,
+                'note-details--golden' : note.goldenThought === true}">
+  <div class="note-details__golden" *ngIf="note.goldenThought == true">
+    <h3 class="note-details__golden-title">Złota myśl</h3>
+  </div>
   <p class="note-details__text"><span class="text__bold">Treść:</span> {{note.content}}</p>
-  <p class="note-details__text"><span class="text__bold">Data utworzenia:</span> {{note.dateCreated | date}}</p>
-  <p class="note-details__text"><span class="text__bold">Czy to złota myśl?</span>
+  <p class="note-details__text"><span class="text__bold">Data:</span> {{note.dateCreated | date}}</p>
+  <p class="note-details__text" *ngIf="router.url != '/zloteMysli'"><span class="text__bold">Czy to złota myśl?</span>
     <span  *ngIf="note.goldenThought == false" class="text__italic">
       Nie
     </span>
@@ -9,7 +13,7 @@
       Tak
     </span>
   </p>
-  <div class="form__container--buttons">
+  <div class="form__container--buttons" *ngIf="router.url != '/zloteMysli'">
     <button class="button form__button" [routerLink]="['/twojaNotatka/',note.id]">Edytuj notatkę</button>
     <button class="button form__button" (click)="deleteNote(note.id)">Usuń notatkę</button>
   </div>
