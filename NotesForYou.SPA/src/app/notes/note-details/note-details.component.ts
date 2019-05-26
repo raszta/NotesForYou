@@ -22,13 +22,15 @@ export class NoteDetailsComponent implements OnInit {
   }
 
   deleteNote(id: number) {
-    this.noteService.deleteNote(id).subscribe(next => {
-      this.deletedNote.emit(id);
-      this.alertify.success('Usunięto notatkę');
-    },
-      error => {
-        this.alertify.error('Błąd podczas usuwania notatki!');
-      });
+    this.alertify.confirm('Czy na pewno chcesz usunąć notatkę?', () => {
+      this.noteService.deleteNote(id).subscribe(next => {
+        this.deletedNote.emit(id);
+        this.alertify.success('Usunięto notatkę');
+      },
+        error => {
+          this.alertify.error('Błąd podczas usuwania notatki!');
+        });
+    });
   }
 
 }
