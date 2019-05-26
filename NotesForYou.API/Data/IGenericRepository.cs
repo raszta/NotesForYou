@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using NotesForYou.API.Models;
 
 namespace NotesForYou.API.Data {
-    public interface IGenericRepository<T> where T : BaseEntity {
+    public interface IGenericRepository<T> where T : class {
         void Add (T entity);
         void Delete (T entity);
         Task<bool> SaveAll ();

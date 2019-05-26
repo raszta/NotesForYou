@@ -1,13 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
 
 namespace NotesForYou.API.Models {
-    public class User : BaseEntity
-    {
+    public class User : IdentityUser<int> {
 
-        public string Username { get; set; }
-        public byte[] PasswordHash { get; set; }
-        public byte[] PasswordSalt { get; set; }
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
         public DateTime Created { get; set; }
@@ -18,5 +15,6 @@ namespace NotesForYou.API.Models {
         public string City { get; set; }
         public string Country { get; set; }
         public ICollection<Note> UserNotes { get; set; }
+        public ICollection<UserRole> UserRoles { get; set; }
     }
 }

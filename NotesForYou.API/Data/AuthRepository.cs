@@ -1,6 +1,11 @@
 using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using NotesForYou.API.Models;
 
 namespace NotesForYou.API.Data {
@@ -11,7 +16,7 @@ namespace NotesForYou.API.Data {
             _context = context;
         }
         public async Task<bool> Exists (string username) {
-            if (await _context.Users.AnyAsync (x => x.Username == username)) {
+            if (await _context.Users.AnyAsync (x => x.UserName == username)) {
                 return true;
             }
 
@@ -20,13 +25,9 @@ namespace NotesForYou.API.Data {
 
         public async Task<User> Login (string username, string password) {
 
-            var user = await _context.Users.FirstOrDefaultAsync (x => x.Username == username);
+            var user = await _context.Users.Include (n => n.UserNotes).FirstOrDefaultAsync (x => x.UserName == username);
 
             if (user == null) {
-                return null;
-            }
-
-            if (!VerifyPasswordHash (password, user.PasswordHash, user.PasswordSalt)) {
                 return null;
             }
 
@@ -48,20 +49,13 @@ namespace NotesForYou.API.Data {
 
         public async Task<User> Register (User user, string password) {
 
-            byte[] passwordHash, passwordSalt;
-            CreatePasswordHash (password, out passwordHash, out passwordSalt);
-
-            user.PasswordHash = passwordHash;
-            user.PasswordSalt = passwordSalt;
-
             await _context.Users.AddAsync (user);
             await _context.SaveChangesAsync ();
 
             return user;
         }
 
-        private void CreatePasswordHash (string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
+        private void CreatePasswordHash (string password, out byte[] passwordHash, out byte[] passwordSalt) {
             using (var hmac = new System.Security.Cryptography.HMACSHA512 ()) {
                 passwordSalt = hmac.Key;
                 passwordHash = hmac.ComputeHash (System.Text.Encoding.UTF8.GetBytes (password));
