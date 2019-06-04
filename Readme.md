@@ -10,46 +10,25 @@ These instructions will get you a copy of the project up and running on your loc
 
 .Net Core with runner
 Angular 7
+Sql Server
 
 
 ### Installing
 ```
-1)Clone the repo
+1)Clone the repo 
+    https://github.com/raszta/NotesForYou.git
 2)Enter the main path to the project
 3)For API project use dotnet restore
 4)For SPA project use npm install
 
 
-## Running the tests
+## TODO
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+Write unit tests for SPA components and API controllers
+Add ngrx for state management
+Try implement e2e tests
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License
 
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
