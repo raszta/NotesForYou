@@ -20,7 +20,7 @@ Sql Server
 2)Enter the main path to the project
 3)For API project use dotnet restore
 4)For SPA project use npm install
-
+```
 
 ## TODO
 

@@ -24,7 +24,17 @@
     }
 
     .description__text{
+      margin:1em 0;
       font-size: 1.5em;
+    }
+
+    .description__gif{
+      width: 100%;
+
+      @media screen and(min-width: $big-tablet-resolution) {
+        width: 80%;
+        height: 35em;
+      }
     }
   }
 }
