@@ -3,10 +3,16 @@
 .button{
   background: white;
   border: 1px solid $font-color-primary;
-  padding: 0.25em;
+  padding: 0.3em;
   border-radius: 35px;
-  font-size: 12px;
+  font-size: 10px;
   font-family: 'Pacifico', cursive;
+  min-width:4em;
+
+  @media screen and(min-width: $mobile-resolution) {
+    font-size: 12px;
+    padding: 0.3em;
+  }
 
   @media screen and(min-width: $tablet-resolution) {
     font-size: 20px;

@@ -33,6 +33,14 @@
     .home__welcome{
       margin: 3em auto 15% auto;
 
+      @media screen and(min-width: 400px){
+          margin: 8em auto 20% auto;
+      }
+
+      @media screen and(min-width: 530px){
+          margin: 4em auto 10% auto;
+      }
+
       @media screen and(min-width: $big-mobile-resolution){
           margin: 7em auto 20% auto;
       }
@@ -43,6 +51,14 @@
 
       @media screen and(min-width: $tablet-resolution){
         margin: 8em auto 25% auto;
+      }
+
+      @media screen and(min-width: 812px){
+        margin: 5em auto 7% auto;
+      }
+
+      @media screen and(min-width: $big-tablet-resolution){
+        margin: 7em auto 25% auto;
       }
 
       @media screen and(min-width: $desktop-resolution){

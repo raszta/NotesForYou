@@ -19,7 +19,15 @@
       cursor: pointer;
 
       .footer__logo-title{
-        font-size: 2em;
+        font-size: 1.5em;
+
+        @media screen and(min-width: $biger-mobile-resolution) {
+          font-size: 2em;
+        }
+
+        @media screen and(min-width: $tablet-resolution) {
+          font-size: 2.25em;
+        }
 
         .title__link{
           color: $font-color-primary;
