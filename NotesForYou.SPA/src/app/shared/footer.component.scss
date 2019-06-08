@@ -33,11 +33,6 @@
 
       .list__item{
 
-        @media screen and(min-width: $tablet-resolution) {
-          font-size: 1.3em;
-          margin-right: 1em;
-        }
-
         &:hover{
          background: $background-color-button;
          .list__link{
