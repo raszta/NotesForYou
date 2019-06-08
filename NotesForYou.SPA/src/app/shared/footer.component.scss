@@ -4,9 +4,12 @@
 
 .footer{
   width:100%;
-  height: 4em;
   position:absolute;
   bottom:0;
+
+  @media screen and(min-width: $tablet-resolution) {
+    height: 4em;
+  }
 
   .footer__content{
     @include flexDisplay(row, space-between, center);
@@ -29,11 +32,11 @@
       @include flexDisplay(row, space-between, center);
 
       .list__item{
-        font-size: 1.3em;
-        margin-right: 1em;
-        border: 1px solid $font-color-primary;
-        padding: 0.5em;
-        border-radius: 30px;
+
+        @media screen and(min-width: $tablet-resolution) {
+          font-size: 1.3em;
+          margin-right: 1em;
+        }
 
         &:hover{
          background: $background-color-button;

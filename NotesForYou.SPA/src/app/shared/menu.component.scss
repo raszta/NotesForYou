@@ -5,6 +5,11 @@
 .menu{
   height: 5em;
   margin-bottom: 2em;
+  display:none;
+
+  @media screen and(min-width: $tablet-resolution) {
+    display:block;
+  }
 
   .menu__container{
     height: 100%;

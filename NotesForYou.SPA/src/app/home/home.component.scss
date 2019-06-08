@@ -3,7 +3,11 @@
 
 .home{
   position: relative;
-  height: calc(100vh - 12em);
+  height: calc(100vh - 5em);
+
+  @media screen and(min-width: $tablet-resolution) {
+    height: calc(100vh - 12em);
+  }
 
   .home__gallery{
       height: 100%;
@@ -23,7 +27,10 @@
     font-family: 'Pacifico', cursive;
 
     .home__welcome{
-      margin: 1em auto 25% auto;
+
+      @media screen and(min-width: $desktop-resolution){
+          margin: 1em auto 25% auto;
+      }
 
       .home__welcome-title{
         font-size: 4em;

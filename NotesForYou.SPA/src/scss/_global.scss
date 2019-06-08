@@ -3,10 +3,15 @@
 .button{
   background: white;
   border: 1px solid $font-color-primary;
-  padding: 0.5em;
+  padding: 0.25em;
   border-radius: 35px;
-  font-size: 20px;
+  font-size: 12px;
   font-family: 'Pacifico', cursive;
+
+  @media screen and(min-width: $tablet-resolution) {
+    font-size: 20px;
+    padding: 0.5em;
+  }
 
    &:hover{
     background: $background-color-button;
