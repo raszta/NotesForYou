@@ -2,40 +2,69 @@
 @import '../../../scss/variables';
 
 .login{
-  height: calc(100vh - 11em);
+  height: calc(100vh - 5em);
   width: 100vw;
   @include flexDisplay(column, center, center);
   position: relative;
 
+   @media screen and(min-width: $tablet-resolution) {
+    height: calc(100vh - 7em);
+  }
+
+  @media screen and(min-width: $big-tablet-resolution) {
+    height: calc(100vh - 12em);
+  }
+
   .background{
     background: url(../../../assets/images/img3.jpg) center/cover no-repeat;
-    height: 98%;
-    width: 96%;
+    height: 100%;
+    width: 100%;
     position: absolute;
     z-index: -2;
     filter: opacity(0.5);
+
+    @media screen and(min-width: $big-tablet-resolution) {
+      height: 98%;
+      width: 96%;
+    }
   }
+
   .login__container{
-    position: absolute;
     z-index: 5;
-    bottom:-350px;
     @include flexDisplay(row, center, center);
     width:100%;
 
+    @media screen and(min-width: $big-tablet-resolution) {
+      position: absolute;
+       bottom:-350px;
+    }
+
     .login__form{
-      height: 50vh;
-      width: 40%;
+      height: 50%;
+      width: 100%;
+
+      @media screen and(min-width: $big-tablet-resolution) {
+        height: 50vh;
+        width: 40%;
+      }
 
       .login__welcome{
         border-bottom: 2px solid black;
-        margin-bottom: 2em;
         text-align: center;
+
+        @media screen and(min-width: $big-tablet-resolution) {
+          margin-bottom: 2em;
+        }
 
         .login__welcome-title{
           font-family: 'Pacifico', cursive;
           color: $font-color-primary;
           font-weight: 500;
-          font-size: 550%;
+          font-size: 400%;
+
+           @media screen and(min-width: $big-tablet-resolution) {
+            font-size: 550%;
+          }
         }
       }
     }
